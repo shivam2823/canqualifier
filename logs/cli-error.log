@@ -1,0 +1,18 @@
+2025-02-21 21:50:45 Error: [Error] Class "Bake\Command\SimpleBakeCommand" not found in C:\xampp\htdocs\canqualifier-new\vendor\cakephp\migrations\src\Command\BakeSimpleMigrationCommand.php on line 29
+Stack Trace:
+#0 C:\xampp\htdocs\canqualifier-new\vendor\composer\ClassLoader.php(444): include()
+#1 C:\xampp\htdocs\canqualifier-new\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\canqualifier-new\vendor\cakephp\migrations\src\Command\BakeMigrationCommand.php(29): Composer\Autoload\ClassLoader->loadClass('Migrations\\Comm...')
+#3 C:\xampp\htdocs\canqualifier-new\vendor\composer\ClassLoader.php(444): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\canqualifier-new\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#5 [internal function]: Composer\Autoload\ClassLoader->loadClass('Migrations\\Comm...')
+#6 C:\xampp\htdocs\canqualifier-new\vendor\cakephp\cakephp\src\Console\CommandScanner.php(134): is_subclass_of('Migrations\\Comm...', 'Cake\\Console\\Sh...')
+#7 C:\xampp\htdocs\canqualifier-new\vendor\cakephp\cakephp\src\Console\CommandScanner.php(93): Cake\Console\CommandScanner->scanDir('C:\\xampp\\htdocs...', 'Migrations\\Comm...', 'migrations.', Array)
+#8 C:\xampp\htdocs\canqualifier-new\vendor\cakephp\cakephp\src\Console\CommandCollection.php(171): Cake\Console\CommandScanner->scanPlugin('Migrations')
+#9 C:\xampp\htdocs\canqualifier-new\vendor\cakephp\cakephp\src\Core\BasePlugin.php(247): Cake\Console\CommandCollection->discoverPlugin('Migrations')
+#10 C:\xampp\htdocs\canqualifier-new\vendor\cakephp\cakephp\src\Http\BaseApplication.php(236): Cake\Core\BasePlugin->console(Object(Cake\Console\CommandCollection))
+#11 C:\xampp\htdocs\canqualifier-new\vendor\cakephp\cakephp\src\Console\CommandRunner.php(142): Cake\Http\BaseApplication->pluginConsole(Object(Cake\Console\CommandCollection))
+#12 C:\xampp\htdocs\canqualifier-new\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
