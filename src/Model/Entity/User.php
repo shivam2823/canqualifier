@@ -32,7 +32,7 @@ class User extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'username' => true,
         'password' => true,
         'role_id' => true,
@@ -58,7 +58,7 @@ class User extends Entity
      *
      * @var array
      */
-    protected array $_hidden = [
+    protected $_hidden = [
         'password'
     ];
 

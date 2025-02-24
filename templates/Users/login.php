@@ -6,13 +6,13 @@
 ?>
 <?= $this->Form->create() ?>
     <div class="form-group">
-        <?= $this->Form->control('username', ['label'=>'Username', 'type'=>'', 'class'=>'form-control', 'required' => true, 'value' => $cookie['username'], 'placeholder'=>'Username','oninput'=>'this.value=this.value.toLowerCase()']); ?>
+        <?= $this->Form->control('username', ['label'=>'Username', 'type'=>'', 'class'=>'form-control', 'required' => true, 'value' => "", 'placeholder'=>'Username','oninput'=>'this.value=this.value.toLowerCase()']); ?>
     </div>
     <div class="form-group">
-        <?= $this->Form->control('password', ['class'=>'form-control', 'value' => $cookie['password'], 'placeholder'=>'Password']); ?>
+        <?= $this->Form->control('password', ['class'=>'form-control', 'value' => "", 'placeholder'=>'Password']); ?>
     </div>
     <div class="checkbox">
-        <?= $this->Form->checkbox('remember_me', ['checked' => $cookie['remember_me']]); ?> Remember Me
+        <?= $this->Form->checkbox('remember_me', ['checked' => ""]); ?> Remember Me
         <span class="pull-right"><?= $this->Html->link(__('Forgot Password?'), ['action' => 'forgotPassword']) ?></span>
     </div>
     <div class="form-group">

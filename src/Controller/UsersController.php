@@ -13,6 +13,9 @@ require_once(ROOT."/vendor/aws/aws-autoloader.php");
 use Aws\S3\S3Client;
 use Cake\I18n\Time;
 
+use Cake\Http\Cookie\Cookie;
+use Cake\Http\Response;
+
 /**
  * Users Controller
  *
@@ -345,9 +348,11 @@ class UsersController extends AppController
 	$this->viewBuilder()->setLayout('login');
 	
 	$cookie = ['username'=>'', 'password'=>'', 'remember_me'=>0];
-	if ($this->Cookie->read('cq_remember_me')) {
+        $cookie = $this->getRequest()->getCookie('cq_remember_me');
+	/*if ($this->Cookie->read('cq_remember_me')) {
 		$cookie = $this->Cookie->read('cq_remember_me');
-	}
+	}*/
+	debug($cookie);
 
 	if($login_secret_key!==null) {
 		$user = $this->Users->find()->where(['login_secret_key'=>$login_secret_key])->enableHydration(false)->first();
@@ -441,18 +446,32 @@ class UsersController extends AppController
 
 		$this->Auth->setUser($user);
 		$id = $user['id'];
-		$userupdate = $this->Users->get($id, contain: []);
+		$userupdate = $this->Users->get($id);
 		$userupdate->last_login = date(DATE_ATOM);
 		$this->Users->save($userupdate);			
 
 		// if remember_me
 		if($this->request->getData('remember_me') == 1)	{			
-			$this->Cookie->write('cq_remember_me', $this->request->getData());
+			//$this->Cookie->write('cq_remember_me', $this->request->getData());
+
+            $cookie = new Cookie(
+                'cq_remember_me',  // Cookie name
+                $this->request->getData(),        // Cookie value
+                [
+                    'expires' => strtotime('+1 year'), // Expiry time
+                    'path' => '/',   // Cookie available for entire site
+                    'secure' => false, // Set to true if using HTTPS
+                    'httponly' => true, // Prevent JavaScript access
+                    'samesite' => 'Lax' // Adjust for security
+                ]
+            );
+            $this->request = $this->getRequest()->withCookie($cookie);
 		}
 		else {
-			$this->Cookie->delete('cq_remember_me');
+			//$this->Cookie->delete('cq_remember_me');
+            $this->request = $this->getRequest()->withExpiredCookie('cq_remember_me');
 		}
-
+debug($cookie);
 		$role = $this->Users->Roles->get($user['role_id'])->toArray();
 		$this->getRequest()->getSession()->write('Auth.User.role', $role['role_title']);
 		
