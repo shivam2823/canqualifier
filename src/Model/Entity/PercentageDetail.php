@@ -28,7 +28,7 @@ class PercentageDetail extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'category_id' => true,
         'contractor_id' => true,
         'percentage' => true,

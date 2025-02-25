@@ -29,7 +29,7 @@ class CronQuestionUpdate extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'client_id' => true,
         'category_id' => true,
         'created' => true,

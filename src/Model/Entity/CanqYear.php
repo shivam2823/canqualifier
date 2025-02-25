@@ -25,7 +25,7 @@ class CanqYear extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'year' => true,
         'status' => true,
         'created' => true,

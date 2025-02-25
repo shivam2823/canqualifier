@@ -26,7 +26,7 @@ class FeedbackAnswer extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'feedback_question_id' => true,
         'answer' => true,

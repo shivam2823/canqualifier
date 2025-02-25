@@ -29,7 +29,7 @@ class UserDetail extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'id' => true,
         'role_id' => true,
         'username' => true,

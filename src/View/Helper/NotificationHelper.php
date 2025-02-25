@@ -9,7 +9,7 @@ use Cake\Core\Configure;
  */
 class NotificationHelper extends Helper
 {
-	public array $helpers = ['User'];
+	//public array $helpers = ['User'];
     public function getAllNotificationCount($user_id = null,$role =null){
 		//$user_id = $this->User->getUserbyRole($activeUser,$role);
    		$this->Notifications = \Cake\ORM\TableRegistry::getTableLocator()->get('Notifications');

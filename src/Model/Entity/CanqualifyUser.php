@@ -26,7 +26,7 @@ class CanqualifyUser extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'first_name' => true,
         'last_name' => true,
         'phone' => true,

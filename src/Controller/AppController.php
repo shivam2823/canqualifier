@@ -67,12 +67,11 @@ class AppController extends Controller
      *
      * @return void
      */
-
-    public $helpers = array('Category','Breadcrumbs', 'Safetyreport');    
-
+    
     public function initialize(): void
     {
         parent::initialize();
+        $this->viewBuilder()->setHelpers(['Category', 'Breadcrumbs', 'Safetyreport']);
 
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,

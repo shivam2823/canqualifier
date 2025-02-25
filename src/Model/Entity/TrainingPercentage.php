@@ -30,7 +30,7 @@ class TrainingPercentage extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'training_id' => true,
         'employee_id' => true,
         'percentage' => true,

@@ -32,7 +32,7 @@ class NotesStatus extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'user_id' => true,
         'old_status' => true,

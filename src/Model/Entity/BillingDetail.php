@@ -35,7 +35,7 @@ class BillingDetail extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'first_name' => true,
         'last_name' => true,
         'email' => true,

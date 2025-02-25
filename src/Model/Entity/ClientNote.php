@@ -42,7 +42,7 @@ class ClientNote extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'id' => true,
         'subject' => true,
         'notes' => true,

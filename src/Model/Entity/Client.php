@@ -46,7 +46,7 @@ class Client extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'company_name' => true,
         'account_type_id' => true,
         'addressline_1' => true,

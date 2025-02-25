@@ -39,7 +39,7 @@ class TrainingQuestion extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'question' => true,
         'question_options' => true,
         'question_type_id' => true,

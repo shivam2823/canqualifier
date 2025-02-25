@@ -10,7 +10,6 @@ use Cake\I18n\Number;
  */
 class SafetyreportHelper extends Helper
 {
-	public array $helpers = ['User'];
 
 	public function getIcon($client_id=null, $contractor_id=null) {
 		$this->OverallIcons = \Cake\ORM\TableRegistry::getTableLocator()->get('OverallIcons');

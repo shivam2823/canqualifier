@@ -30,7 +30,7 @@ class Review extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'reviewtxt' => true,
         'rating' => true,
         'client_id' => true,

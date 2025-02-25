@@ -29,7 +29,7 @@ class TrainingAnswer extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'employee_id' => true,
         'training_questions_id' => true,
         'answer' => true,

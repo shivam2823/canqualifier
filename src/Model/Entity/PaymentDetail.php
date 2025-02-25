@@ -31,7 +31,7 @@ class PaymentDetail extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'payment_id' => true,
         'service_id' => true,
         'price' => true,

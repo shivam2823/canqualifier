@@ -30,7 +30,7 @@ class ClientQuestion extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'client_id' => true,
         'question_id' => true,
         'is_safety_sensitive' => true,

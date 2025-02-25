@@ -32,7 +32,7 @@ class EmployeeAnswer extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'employee_id' => true,
         'employee_question_id' => true,
         'answer' => true,

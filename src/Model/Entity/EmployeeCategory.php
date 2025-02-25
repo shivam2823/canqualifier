@@ -33,7 +33,7 @@ class EmployeeCategory extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'description' => true,
         'is_parent' => true,

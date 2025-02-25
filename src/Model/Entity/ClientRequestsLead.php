@@ -31,7 +31,7 @@ class ClientRequestsLead extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'client_id' => true,
         'lead_id' => true,
         'status' => true,

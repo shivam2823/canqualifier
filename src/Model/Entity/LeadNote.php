@@ -34,7 +34,7 @@ class LeadNote extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'subject' => true,
         'notes' => true,
         'lead_id' => true,

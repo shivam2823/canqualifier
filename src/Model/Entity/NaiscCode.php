@@ -23,7 +23,7 @@ class NaiscCode extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'naisc_code' => true,
         'title' => true,
         'created' => true,

@@ -29,7 +29,7 @@ class ContractorInvoice extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'service_id' => true,
         'service_qty' => true,

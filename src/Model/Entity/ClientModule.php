@@ -29,7 +29,7 @@ class ClientModule extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'client_id' => true,
         'module_id' => true,
         'created' => true,

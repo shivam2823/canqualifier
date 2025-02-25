@@ -27,7 +27,7 @@ class ClientService extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'client_id' => true,
         'service_id' => true,
         'discount' => true,

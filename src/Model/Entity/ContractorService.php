@@ -30,7 +30,7 @@ class ContractorService extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'service_id' => true,
         'created_by' => true,

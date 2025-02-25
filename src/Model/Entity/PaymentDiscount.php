@@ -25,7 +25,7 @@ class PaymentDiscount extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'discount_price' => true,
         'valid_date' => true,

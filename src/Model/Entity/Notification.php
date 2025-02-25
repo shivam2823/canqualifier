@@ -34,7 +34,7 @@ class Notification extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'user_id' => true,
         'notification_type_id' => true,
         'title' => true,

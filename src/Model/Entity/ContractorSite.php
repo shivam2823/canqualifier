@@ -28,7 +28,7 @@ class ContractorSite extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'site_id' => true,
 		'client_id' => true,

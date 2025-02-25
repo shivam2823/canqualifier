@@ -34,9 +34,10 @@ use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
-use Cake\Database\Type;
+use Cake\Database\TypeFactory;
 use Cake\Datasource\ConnectionManager;
-use Cake\Error\ErrorHandler;
+use Cake\Error\ErrorTrap;
+use Cake\Error\ExceptionTrap;
 use Cake\Http\ServerRequest;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
@@ -120,7 +121,8 @@ $isCli = PHP_SAPI === 'cli';
 if ($isCli) {
     (new ConsoleErrorHandler(Configure::read('Error')))->register();
 } else {
-    (new ErrorHandler(Configure::read('Error')))->register();
+    (new ErrorTrap())->register();
+    (new ExceptionTrap())->register();
 }
 
 /*
@@ -185,14 +187,14 @@ ServerRequest::addDetector('tablet', function ($request) {
  * locale specific date formats. For details see
  * @link https://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
-Type::build('time')
+/*TypeFactory::build('time')
     ->useImmutable();
-Type::build('date')
+TypeFactory::build('date')
     ->useImmutable();
-Type::build('datetime')
+TypeFactory::build('datetime')
     ->useImmutable();
-Type::build('timestamp')
-    ->useImmutable();
+TypeFactory::build('timestamp')
+    ->useImmutable();*/
 
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize

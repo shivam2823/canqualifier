@@ -591,7 +591,7 @@ class ExportComponent extends Component
 
 
     }
-    public function XportToExcelData($data =array(),$headT=array(),$title)
+    public function XportToExcelData($data =array(),$headT=array(),$title = '')
     {
 
         $spreadsheet = new Spreadsheet();
@@ -657,7 +657,7 @@ class ExportComponent extends Component
         header('Cache-Control: no-cache');
         $writer->save('php://output');        
       }
-      public function XportToCSVData($data =array(),$headT=array(),$title)
+      public function XportToCSVData($data =array(), $headT=array(), $title = '')
       {        
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -1009,7 +1009,7 @@ class ExportComponent extends Component
         $writer->save('php://output');
         exit();
     }
-    public function XportIconReportExcel($data =array(),$headT=array(),$title = null,$totalCount=null)
+    public function XportIconReportExcel($data =array(), $headT=array(),$title = null, $totalCount=null)
     {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -1075,7 +1075,7 @@ class ExportComponent extends Component
         
       
     }
-    public function XportIconReportCSV($data =array(),$headT=array(),$title=null,$totalCount=null)
+    public function XportIconReportCSV($data =array(), $headT=array(), $title=null, $totalCount=null)
     {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();

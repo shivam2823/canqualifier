@@ -37,7 +37,7 @@ class EmailSignature extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'signature_name' => true,
         'name' => true,
         'title' => true,

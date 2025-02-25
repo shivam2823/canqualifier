@@ -28,7 +28,7 @@ class SkillAssessment extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'document' => true,
         'contractor_id' => true,

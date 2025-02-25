@@ -39,7 +39,7 @@ class Employee extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'addressline_1' => true,
         'addressline_2' => true,
         'city' => true,

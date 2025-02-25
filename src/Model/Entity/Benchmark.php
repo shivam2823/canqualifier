@@ -36,7 +36,7 @@ class Benchmark extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'benchmark_category_id' => true,
         'range_from' => true,
         'range_to' => true,

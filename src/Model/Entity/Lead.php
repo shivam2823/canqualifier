@@ -41,7 +41,7 @@ class Lead extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'company_name' => true,
         'contact_name_first' => true,
         'contact_name_last' => true,

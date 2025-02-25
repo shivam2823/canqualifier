@@ -32,7 +32,7 @@ class ContractorRequest extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'employee_id' => true,
         'status' => true,

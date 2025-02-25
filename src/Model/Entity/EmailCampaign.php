@@ -30,7 +30,7 @@ class EmailCampaign extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'campaign_name' => true,
         'to_mail' => true,
         'from_mail' => true,

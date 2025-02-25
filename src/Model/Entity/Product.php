@@ -28,7 +28,7 @@ class Product extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'range_from' => true,
         'range_to' => true,

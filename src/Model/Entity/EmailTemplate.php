@@ -25,7 +25,7 @@ class EmailTemplate extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'template_content' => true,
         'created' => true,

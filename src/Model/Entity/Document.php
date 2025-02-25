@@ -33,7 +33,7 @@ class Document extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'document' => true,
         'client_id' => true,

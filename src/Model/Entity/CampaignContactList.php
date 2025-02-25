@@ -26,7 +26,7 @@ class CampaignContactList extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'suppliers_ids' => true,
         'created' => true,

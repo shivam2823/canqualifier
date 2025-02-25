@@ -28,7 +28,7 @@ class WatchList extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'contractor_id' => true,
         'client_id' => true,
         'company_name' => true,

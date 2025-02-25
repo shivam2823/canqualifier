@@ -27,7 +27,7 @@ class CustomerRepresentative extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'pri_contact_fn' => true,
         'pri_contact_ln' => true,
         'pri_contact_pn' => true,

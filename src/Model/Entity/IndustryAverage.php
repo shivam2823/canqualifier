@@ -34,7 +34,7 @@ class IndustryAverage extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'naisc_code_id' => true,
         'total_recordable_cases' => true,
         'total' => true,

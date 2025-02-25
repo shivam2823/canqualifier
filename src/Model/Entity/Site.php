@@ -27,7 +27,7 @@ class Site extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'client_id' => true,
         'region_id' => true,

@@ -25,7 +25,7 @@ class WaitingOn extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'status' => true,
         'created' => true,
         'modified' => true,

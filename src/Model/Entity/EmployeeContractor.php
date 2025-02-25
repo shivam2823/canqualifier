@@ -29,7 +29,7 @@ class EmployeeContractor extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'employee_id' => true,
         'contractor_id' => true,
         'created' => true,

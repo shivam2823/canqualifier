@@ -30,7 +30,7 @@ class EmployeeTraining extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'employee_id' => true,
         'training_id' => true,
         'name' => true,

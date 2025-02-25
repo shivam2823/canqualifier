@@ -24,7 +24,7 @@ class LeadStatus extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'created' => true,
         'modified' => true,
         'created_by' => true,

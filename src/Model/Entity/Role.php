@@ -25,7 +25,7 @@ class Role extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'role_title' => true,
         'active' => true,
         'created' => true,

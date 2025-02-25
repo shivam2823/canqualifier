@@ -36,7 +36,7 @@ class Payment extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'response' => true,
         'contractor_id' => true,
         'totalprice' => true,

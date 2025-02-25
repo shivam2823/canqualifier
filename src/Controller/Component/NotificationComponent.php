@@ -56,7 +56,7 @@ class NotificationComponent extends Component
 					
 				}
 	}
-	public function insureQualNoti($contData=array(),$type=null,$expired){		
+	public function insureQualNoti($contData=array(),$type=null,$expired = ''){
 		$this->controller = $this->_registry->getController();
 		$this->Notifications = \Cake\ORM\TableRegistry::getTableLocator()->get('Notifications');
 		$todayDate = date('Y/m/d');

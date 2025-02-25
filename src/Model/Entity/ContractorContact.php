@@ -31,7 +31,7 @@ class ContractorContact extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'fname' => true,
         'lname' => true,
         'email' => true,

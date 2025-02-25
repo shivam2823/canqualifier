@@ -25,7 +25,7 @@ class IndustryType extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'title' => true,
         'naics_code' => true,
         'created' => true,

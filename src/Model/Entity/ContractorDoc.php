@@ -32,7 +32,7 @@ class ContractorDoc extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'document' => true,
         'fndocs_id' => true,
         'client_id' => true,

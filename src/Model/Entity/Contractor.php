@@ -40,7 +40,7 @@ class Contractor extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'company_name' => true,
         'addressline_1' => true,
         'addressline_2' => true,

@@ -23,7 +23,7 @@ class AccountType extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'created' => true,
         'modified' => true,

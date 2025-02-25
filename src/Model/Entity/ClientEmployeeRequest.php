@@ -32,7 +32,7 @@ class ClientEmployeeRequest extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'client_id' => true,
         'employee_id' => true,
         'status' => true,

@@ -32,7 +32,7 @@ class Service extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [
+    protected $_accessible = [
         'name' => true,
         'active' => true,
         'created' => true,
