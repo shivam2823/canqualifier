@@ -7,10 +7,10 @@
   define('RDS_PORT',     $_SERVER['RDS_PG_PORT']);
 }*/
 if (!defined('RDS_HOSTNAME')) {
-  define('RDS_HOSTNAME', 'localhost');
+  define('RDS_HOSTNAME', '18.206.255.17');
   define('RDS_USERNAME', 'postgres');
   define('RDS_PASSWORD', 'postgres');
-  define('RDS_DB_NAME',  'canqualifier_local');
+  define('RDS_DB_NAME',  'canqualifier_dev');
   define('RDS_PORT',     5432);
 }
 $debug = true;
