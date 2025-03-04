@@ -27,14 +27,19 @@ use Cake\Core\Configure;
 	</thead>
 	<tbody>
 	<?php $addr = array(); ?>
-	<?php foreach ($userList as $user): 
+	<?php foreach ($userList as $user):
 		$clientUser = $user['client_user'];
-		$client = $user['client_user']['client'];		
+		$client = (!empty($user['client_user']['client']) ? $user['client_user']['client'] : '');
 		?>
+    <?php
+        if(!empty($client)){
+            $noOfCons = array();
+            $noOfCons = $this->User->getContractors($client['id']);
+    ?>
 	<tr>		
 		<td><?= $this->Html->link($client['company_name'], ['controller' => 'Clients', 'action' => 'dashboard', $client['id']]); ?></td>
 		<td><?= $client['account_type'] ? $client['account_type']['name'] : '' ?></td>
-		<td class="text-center"><?php echo count($this->User->getContractors($client['id']));?></td>
+		<td class="text-center"><?php echo count($noOfCons);?></td>
         <td>
 			 <span style="display:none;"><?= $user->under_configuration ? '1' : '0' ?></span>
 			<?= $this->Form->create($user,['class'=>'saveAjax', 'data-responce'=>'.alert-wrap']) ?>
@@ -60,6 +65,9 @@ use Cake\Core\Configure;
 			<?= $this->Html->link('<i class="fa fa-pencil"></i>', ['action' => 'addClient/1/'.$clientUser['id']],['escape'=>false, 'title' => 'Edit']) ?>
 		</td>
 	</tr>
+    <?php
+    }
+        ?>
 	<?php
 	if(!empty($client->sites)){
 		foreach ($client->sites as $client_site): 

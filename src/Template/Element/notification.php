@@ -14,15 +14,15 @@
 		<input type="hidden" name="contractor_id" id="#contractor_id" value="<?= $activeUser['id'];?>">
  		<?php 
 		$all_count=$this->Notification->getAllNotificationCount($activeUser['id'],$activeUser['role']);
-		$notifications = $this->Notification->getNotification($activeUser['id'],$activeUser['role']); ?>
+		$notifications = $this->Notification->getNotification($activeUser['id'],$activeUser['role']); ?>		
 			<!--<div class="details no-data" id="no_data"></div>-->
 			<?php if($all_count == 0){?>
 			<div class="details no-data">You don't have any notifications </div>
 			<?php }else {
-			$i=1;
+			$i=1;			
 			foreach($notifications as $notification) { 
 			if($i<=5){				
-				if(($notification[$i]['state'] == $notification['state'])) {
+				if(($notification[$i]['state']=$notification['state'])) {					
 			?>		
 			<li class='lists dropdown-item media' data-id= "<?= $notification[$i]['id']=$notification['id'];?>">
 			<div class="details">

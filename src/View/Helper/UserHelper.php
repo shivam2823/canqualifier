@@ -94,16 +94,18 @@ class UserHelper extends Helper
 		return $clients;
 	}
 
-	public function getContractors($client_id=null)
+	public function getContractors($client_id = null)
 	{
 		$this->ContractorClients = TableRegistry::get('ContractorClients');
+        $where = array();
+        if($client_id != null){
+            $where['client_id'] = $client_id;
+        }
 
-		$where = ['client_id' => $client_id];
 		if(!$this->isAdmin() && !$this->isCR()) {
 			$where['Contractors.payment_status'] = true;
 			$where['Users.active'] = true;
 		}
-		
 		$contractors = $this->ContractorClients
         ->find('list', ['keyField'=>'contractor_id', 'valueField'=>'contractor_id'])
 		->where($where)

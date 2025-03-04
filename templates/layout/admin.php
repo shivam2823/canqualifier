@@ -233,7 +233,7 @@ $uploaded_path = Configure::read('uploaded_path');
 		<?php } }?>
 		<?= $this->Html->link('Login As', ['controller'=>'Users','action'=>'loginAs'], ['escape'=>false, 'title'=>__('Login As'), 'class'=>'btn btn-secondary btn-sm btn-login-as']) ?>		
 	
-		<?php echo $this->element('notification');  ?>
+		<?php //echo $this->element('notification');  ?>
 			
 		<div class="user-area dropdown">
 		<?php $profile_photo = $activeUser['profile_photo'] != null ? $uploaded_path.$activeUser['profile_photo'] : 'user-icon.jpeg'; ?>

@@ -623,7 +623,7 @@ $iconList = Configure::read('icons'); //, array('0'=>'Grey','1'=>'Red','2'=>'Yel
                                         }
                                         ?>
                                         <td>
-                                            <?= $this->Form->create('',['url'=>['controller'=>'ContractorAnswers','action'=>'downloadPqf/'.$val['client_id']]]) ?>
+                                            <?= $this->Form->create(null,['url'=>['controller'=>'ContractorAnswers','action'=>'downloadPqf/'.$val['client_id']]]) ?>
                                             <?php
                                             $services = $this->Category->getServices($activeUser['contractor_id']);
                                             $sdata = array();

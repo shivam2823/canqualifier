@@ -28,8 +28,8 @@ class NotificationHelper extends Helper
 		//->select(['id','title','description','url','state'])
 		->contain(['NotificationTypes'])		
 		->where(['user_id'=>$user_id,'is_completed'=> false])
-		->orderBy(['Notifications.created' =>'DESC'])
-		->toArray();          
+		->order(['Notifications.created' =>'DESC'])
+		->toArray();
         return $allMsg; 
     }
 	public function getUnreadCount($user_id = null,$role =null){   

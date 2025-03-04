@@ -736,7 +736,7 @@ class ContractorsController extends AppController
 	$allowForceChange = $this->User->isContractorAssigned();
 	if($this->User->isAdmin()) { $allowForceChange = true; }
 
-	$contractor = $this->Contractors->get($contractor_id, contain: ['States', 'Countries', 'Users', 'Payments']);
+	$contractor = $this->Contractors->get($contractor_id, ['contain' => ['States', 'Countries', 'Users', 'Payments']]);
 	$company_name = $contractor->company_name;
 
 	if ($this->request->is(['patch', 'post', 'put'])) {

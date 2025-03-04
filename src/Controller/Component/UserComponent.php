@@ -186,7 +186,7 @@ class UserComponent extends Component {
 			if($activeUser['role_id'] == SUPER_ADMIN || $activeUser['role_id'] == ADMIN) {
 				return $this->controller->redirect(['action' => 'dashboard']);
 			}elseif($activeUser['role_id'] == CONTRACTOR) {
-				$contractor = $this->Contractors->get($activeUser['contractor_id'], contain: ['Users']);
+				$contractor = $this->Contractors->get($activeUser['contractor_id'], ['contain' => ['Users']]);
 				$subscription_date = date('Y-m-d', strtotime($contractor->subscription_date));
 				$todayDate = date('Y-m-d');
 				if($activeUser['registration_status']==1) {
@@ -236,7 +236,7 @@ class UserComponent extends Component {
     public function waiting_status_ids()
     {
         $this->WaitingOn = \Cake\ORM\TableRegistry::getTableLocator()->get('WaitingOn');
-        $waiting_on = $this->WaitingOn->find('list', keyField: 'id', valueField: 'status')->toArray();
+        $waiting_on = $this->WaitingOn->find('list', ['keyField' => 'id', 'valueField' => 'status'])->toArray();
         return $waiting_on;
     }
 
@@ -266,7 +266,7 @@ class UserComponent extends Component {
 	{
 		$this->ContractorSites = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorSites');
 		
-		$contractorSites = $this->ContractorSites->find('list', keyField: 'id', valueField: 'site_id')->where(['contractor_id'=>$contractor_id,'is_archived'=> false])->orderBy(['id'=>'ASC'])->toArray();
+		$contractorSites = $this->ContractorSites->find('list', ['keyField' => 'id', 'valueField' => 'site_id'])->where(['contractor_id'=>$contractor_id,'is_archived'=> false])->order(['id'=>'ASC'])->toArray();
 		
 		return $contractorSites;
 	}
@@ -432,7 +432,7 @@ class UserComponent extends Component {
         }*/
 
         $contractorClients = $this->ContractorClients
-            ->find('list', keyField: 'client_id', valueField: 'client.company_name')
+            ->find('list', ['keyField' => 'client_id', 'valueField' => 'client.company_name'])
             ->where($where)
             ->contain(['Clients'])
             ->distinct(['client_id'])
@@ -452,7 +452,7 @@ class UserComponent extends Component {
 		}*/
 		
 		$contractorClients = $this->ContractorClients
-		->find('list', keyField: 'client_id', valueField: 'client_id')
+		->find('list', ['keyField' => 'client_id', 'valueField' => 'client_id'])
 		->where($where)
 		->contain(['Contractors.Users'])
 		->distinct(['client_id'])
@@ -463,7 +463,7 @@ class UserComponent extends Component {
 			$this->ContractorTempclients = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorTempclients');
 
 			$contractorTempclients = $this->ContractorTempclients
-			->find('list', keyField: 'client_id', valueField: 'client_id')
+			->find('list', ['keyField' => 'client_id', 'valueField' => 'client_id'])
 			->where(['contractor_id' => $contractor_id])
 			->contain(['Contractors.Users'])
 			->distinct(['client_id'])
@@ -543,7 +543,7 @@ class UserComponent extends Component {
 		$where['Users.active'] = true;
 				
 		$employees = $this->EmployeeContractors
-		->find('list', keyField: 'employee_id', valueField: 'employee_id')
+		->find('list', ['keyField' => 'employee_id', 'valueField' => 'employee_id'])
 		->where($where)
 		->contain(['Employees.Users'])
 		->distinct(['employee_id'])
