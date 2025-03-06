@@ -2076,8 +2076,8 @@ where training_percentages.client_id = ".$client_id ."and training_percentages.p
         $this->loadModel('GcClients');
 
         /*Add association form*/
-        $clients = $this->Clients->find('list', keyField: 'id', valueField: 'company_name')->where(['is_gc is not true'])->orderBy(['company_name'])->toArray();
-        $GC_clients = $this->Clients->find('list', keyField: 'id', valueField: 'company_name')->where(['is_gc' => true])->orderBy(['company_name'])->toArray();
+        $clients = $this->Clients->find('list', ['keyField' => 'id', 'valueField' => 'company_name'])->where(['is_gc is not true'])->order(['company_name'])->toArray();
+        $GC_clients = $this->Clients->find('list', ['keyField' => 'id', 'valueField' => 'company_name'])->where(['is_gc' => true])->order(['company_name'])->toArray();
 
 
         /*show existing relations*/
