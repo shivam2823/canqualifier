@@ -13,6 +13,8 @@ if (!defined('RDS_HOSTNAME')) {
   define('RDS_DB_NAME',  'canqualifier_dev');
   define('RDS_PORT',     5432);
 }*/
+
+
 $debug = true;
 $sessionTimeout = 0;
 if(isset($_SERVER['ENVIRONMENT']) && $_SERVER['ENVIRONMENT'] == 'production'){
