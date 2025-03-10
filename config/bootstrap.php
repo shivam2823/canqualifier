@@ -30,7 +30,6 @@ require __DIR__ . '/paths.php';
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
 use Cake\Cache\Cache;
-use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
@@ -119,7 +118,10 @@ ini_set('intl.default_locale', Configure::read('App.defaultLocale'));
  */
 $isCli = PHP_SAPI === 'cli';
 if ($isCli) {
-    (new ConsoleErrorHandler(Configure::read('Error')))->register();
+    //(new ConsoleErrorHandler(Configure::read('Error')))->register();
+    //(new \Cake\Error\ConsoleErrorHandler(Configure::read('Error')))->register();
+    (new ErrorTrap())->register();
+    (new ExceptionTrap())->register();
 } else {
     (new ErrorTrap())->register();
     (new ExceptionTrap())->register();
