@@ -6,7 +6,7 @@
 ?>
 <?= $this->Form->create() ?>
     <div class="form-group">
-        <?= $this->Form->control('username', ['label'=>'Username', 'type'=>'', 'class'=>'form-control', 'required' => true, 'value' => "", 'placeholder'=>'Username','oninput'=>'this.value=this.value.toLowerCase()']); ?>
+        <?= $this->Form->control('username', ['label'=>'Username 123', 'type'=>'', 'class'=>'form-control', 'required' => true, 'value' => "", 'placeholder'=>'Username','oninput'=>'this.value=this.value.toLowerCase()']); ?>
     </div>
     <div class="form-group">
         <?= $this->Form->control('password', ['class'=>'form-control', 'value' => "", 'placeholder'=>'Password']); ?>
