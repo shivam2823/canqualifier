@@ -1,18 +1,18 @@
 <?php
-if (!defined('RDS_HOSTNAME')) {
+/*if (!defined('RDS_HOSTNAME')) {
   define('RDS_HOSTNAME', $_SERVER['RDS_PG_HOSTNAME']);
   define('RDS_USERNAME', $_SERVER['RDS_PG_USERNAME']);
   define('RDS_PASSWORD', $_SERVER['RDS_PG_PASSWORD']);
   define('RDS_DB_NAME',  $_SERVER['RDS_PG_DB_NAME']);
   define('RDS_PORT',     $_SERVER['RDS_PG_PORT']);
-}
-/*if (!defined('RDS_HOSTNAME')) {
+}*/
+if (!defined('RDS_HOSTNAME')) {
   define('RDS_HOSTNAME', '52.20.135.23');
   define('RDS_USERNAME', 'postgres');
   define('RDS_PASSWORD', 'postgres');
   define('RDS_DB_NAME',  'canqualifier_dev');
   define('RDS_PORT',     5432);
-}*/
+}
 
 
 $debug = true;
