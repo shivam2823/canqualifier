@@ -18,12 +18,9 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 //use Cake\Http\Middleware\CsrfProtectionMiddleware;
-//use Cake\Routing\RouteBuilder;
-//use Cake\Routing\Router;
-//use Cake\Routing\Route\DashedRoute;
-
-use Cake\Routing\Route\DashedRoute;
+use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
+//use Cake\Routing\Route\DashedRoute;
 
 /**
  * The default class to use for all routes
@@ -48,15 +45,8 @@ use Cake\Routing\Router;
  */
 //Router::defaultRouteClass('DashedRoute');
 
-Router::scope('/', function ($routes) {
-    $routes->setRouteClass(DashedRoute::class);
 
-    // Define a custom route for forgotPassword action
-    $routes->connect('/', ['controller' => 'Users', 'action' => 'login']);
-
-    $routes->fallbacks(DashedRoute::class);
-});
-/*Router::createRouteBuilder('/')->scope('/', function (RouteBuilder $routes) {
+Router::createRouteBuilder('/')->scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Users', 'action' => 'login'], ['_name' => 'login']);
-$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
-});*/
+    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+});
