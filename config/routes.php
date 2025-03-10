@@ -47,6 +47,8 @@ use Cake\Routing\Router;
 
 
 Router::createRouteBuilder('/')->scope('/', function (RouteBuilder $routes) {
+    $routes->setRouteClass(DashedRoute::class);
     $routes->connect('/', ['controller' => 'Users', 'action' => 'login'], ['_name' => 'login']);
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    $routes->fallbacks(DashedRoute::class);
 });
