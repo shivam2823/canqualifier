@@ -12,7 +12,7 @@
 		<?= $this->Form->control('password', ['class'=>'form-control', 'value' => $cookie['password'], 'placeholder'=>'Password']); ?>
 	</div>
 	<div class="checkbox">
-		<?= $this->Form->checkbox('remember_me', ['checked' => $cookie['remember_me']]); ?> Remember Me
+		<?= $this->Form->checkbox('remember_me', ['checked' => $cookie['remember_me']]); ?> Remember Me 123
 		<span class="pull-right"><?= $this->Html->link(__('Forgot Password?'), ['action' => 'forgotPassword']) ?></span>
 	</div>
 	<div class="form-group">
