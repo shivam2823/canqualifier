@@ -951,7 +951,7 @@ class UsersController extends AppController
     public function settings()
     {
 	    $id = $this->getRequest()->getSession()->read('Auth.User.id');
-	    $user = $this->Users->get($id, contain: []);
+	    $user = $this->Users->get($id);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
