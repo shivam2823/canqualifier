@@ -19,7 +19,7 @@ class SafetyreportComponent extends Component {
 		->find('list', keyField: 'year', valueField: 'answer')
 		->where(['contractor_id'=>$contractor_id, 'Questions.safety_type'=>'G', 'year IN'=>$year_range])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->toArray();
 
 		$sumAns = 0;
@@ -39,7 +39,7 @@ class SafetyreportComponent extends Component {
 		$this->ContractorAnswers = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorAnswers');
 		$year_range = $this->Category->yearRange();
 
-		$year_skip = $this->ContractorAnswers->find('list', keyField: 'year', valueField: 'year')->where(['question_id'=>38, 'answer'=>'No', 'year IN'=>$year_range, 'contractor_id'=>$contractor_id])->orderBy('year')->toArray();
+		$year_skip = $this->ContractorAnswers->find('list', keyField: 'year', valueField: 'year')->where(['question_id'=>38, 'answer'=>'No', 'year IN'=>$year_range, 'contractor_id'=>$contractor_id])->order('year')->toArray();
 		//$year_skip = array_fill_keys(array_diff($year_range, $year_skip), 0);
 
 		$year_skip = array_fill_keys($year_skip, '0'); // default '0'
@@ -51,7 +51,7 @@ class SafetyreportComponent extends Component {
 		->find('list', keyField: 'year', valueField: 'answer')
 		->where(['contractor_id'=>$contractor_id, 'Questions.safety_type'=>'C', 'year IN'=>array_keys($year_range)])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->toArray();
 
 		$sumAns = 0;
@@ -75,7 +75,7 @@ class SafetyreportComponent extends Component {
 		->find('list', keyField: 'year', valueField: 'answer')
 		->where(['contractor_id'=>$contractor_id, 'Questions.safety_type'=>'E', 'year IN'=>$year_range])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->toArray();
 
 		$sumAns = 0;
@@ -100,7 +100,7 @@ class SafetyreportComponent extends Component {
 		->select(['year', 'answer', 'Questions.safety_type'])
 		->where(['contractor_id'=>$contractor_id, 'Questions.safety_type IN'=>['M','W'], 'year IN'=>$year_range])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
 
@@ -138,7 +138,7 @@ class SafetyreportComponent extends Component {
 		->select(['year', 'answer', 'Questions.safety_type'])
 		->where(['contractor_id'=>$contractor_id, 'Questions.safety_type IN'=>['H','W'], 'year IN'=>$year_range])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
 		
@@ -175,7 +175,7 @@ class SafetyreportComponent extends Component {
 		->select(['year', 'answer', 'Questions.safety_type'])
 		->where(['contractor_id'=>$contractor_id, 'Questions.safety_type IN'=>['H', 'I', 'W'], 'year IN'=>$year_range])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
 
@@ -217,7 +217,7 @@ class SafetyreportComponent extends Component {
 		->where(['contractor_id IN'=>$contractor_ids, 'Questions.safety_type'=>'G', 'year IN'=>$year_range])
 		->contain(['Contractors'=>['fields'=>['company_name']]])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
 
@@ -247,7 +247,7 @@ class SafetyreportComponent extends Component {
 		->where(['contractor_id IN'=>$contractor_ids, 'Questions.safety_type'=>'C', 'year IN'=>$year_range])
 		->contain(['Contractors'=>['fields'=>['company_name']]])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
 
@@ -277,7 +277,7 @@ class SafetyreportComponent extends Component {
 		->where(['contractor_id IN'=>$contractor_ids, 'Questions.safety_type'=>'E', 'year IN'=>$year_range])
 		->contain(['Contractors'=>['fields'=>['company_name']]])
 		->contain(['Questions'])
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
 
@@ -313,7 +313,7 @@ class SafetyreportComponent extends Component {
 			->select(['year', 'answer', 'Questions.safety_type', 'contractor_id'])
 			->where(['contractor_id IN'=>$contractor_ids, 'Questions.safety_type IN'=>['M','W'], 'year IN'=>$year_range])
 			->contain(['Questions'])
-			->orderBy(['year'=>'asc'])
+			->order(['year'=>'asc'])
 			->enableHydration(false)
 			->toArray();
 
@@ -350,7 +350,7 @@ class SafetyreportComponent extends Component {
 			->select(['year', 'answer', 'Questions.safety_type', 'contractor_id'])
 			->where(['contractor_id IN'=>$contractor_ids, 'Questions.safety_type IN'=>['H','W'], 'year IN'=>$year_range])
 			->contain(['Questions'])
-			->orderBy(['year'=>'asc'])
+			->order(['year'=>'asc'])
 			->enableHydration(false)
 			->toArray();
 
@@ -381,7 +381,7 @@ class SafetyreportComponent extends Component {
 			->select(['year', 'answer', 'Questions.safety_type', 'contractor_id'])
 			->where(['contractor_id IN'=>$contractor_ids, 'Questions.safety_type IN'=>['H', 'I', 'W'], 'year IN'=>$year_range])		
 			->contain(['Questions'])
-			->orderBy(['year'=>'asc'])
+			->order(['year'=>'asc'])
 			->enableHydration(false)
 			->toArray();
 

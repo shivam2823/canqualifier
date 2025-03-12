@@ -52,7 +52,7 @@ class CategoryHelper extends Helper
 	$year = $this->CanqYears
 		->find('list', keyField: 'year', valueField: 'year')			
 		->where(['id BETWEEN ' .$subquery1->id. ' AND'=>$subquery2->id])	
-		->orderBy(['id'=>'ASC'])
+		->order(['id'=>'ASC'])
 		->enableHydration(false)
 		->toArray();			
 	return $year;
@@ -73,7 +73,7 @@ class CategoryHelper extends Helper
 	->contain(['Services'])
 	->contain(['Services.ClientServices'=>['conditions'=>['ClientServices.client_id IN'=>$contractor_clients]] ])
 	->where([$andWhere])
-	->orderBy(['category_order'=>'ASC', 'Categories.id'=>'ASC'])
+	->order(['category_order'=>'ASC', 'Categories.id'=>'ASC'])
 	->enableHydration(false)
 	->toArray();				
 	return $query;	
@@ -90,7 +90,7 @@ class CategoryHelper extends Helper
 	$year_range = $this->CanqYears
 		->find('list', keyField: 'year', valueField: 'year')			
 		->where(['id < ' .$subquery1->id])	
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();				
 	}

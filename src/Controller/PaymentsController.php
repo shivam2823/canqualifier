@@ -815,7 +815,7 @@ class PaymentsController extends AppController
 		->find('all')
 		->contain(['PaymentDetails'])
 		->where(['contractor_id'=>$contractor_id])
-		->orderBy(['id'])
+		->order(['id'])
 		->toArray();
 
         $this->set(compact('payments', 'calculatePayment', 'allClients','contractor', 'renew_subscription'));

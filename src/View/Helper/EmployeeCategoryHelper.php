@@ -57,7 +57,7 @@ class EmployeeCategoryHelper extends Helper
 				['active'=>true, 'employee_category_id IS'=>$parent_id, 'is_parent IS'=>true]
          	 	]
 		    ])
-	    ->orderBy(['employee_category_order'=>'ASC', 'EmployeeCategories.id'=>'ASC'])
+	    ->order(['employee_category_order'=>'ASC', 'EmployeeCategories.id'=>'ASC'])
 	    ->enableHydration(false)
 	    ->toArray();
 		}

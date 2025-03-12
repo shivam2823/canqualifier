@@ -115,7 +115,7 @@ class TrainingsController extends AppController
             $client_id = $this->getRequest()->getSession()->read('Auth.User.client_id');
         }
 
-        $training = $this->Trainings->newEntity();	    
+        $training = $this->Trainings->newEntity([]);
 		$userId = $this->getRequest()->getSession()->read('Auth.User.id');
 
         if ($this->request->is(['patch', 'post', 'put'])) {

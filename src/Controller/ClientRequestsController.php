@@ -130,7 +130,7 @@ class ClientRequestsController extends AppController
             
 				if(count($contractor_client) == 1){
                     $contractor_client = array_values($contractor_client);
-					$getClientRequest = $this->ClientRequests->Clients->find("all")->select(['id','company_name'])->where(['id'=>$contractor_client[0]])->orderBy(['company_name'=>'ASC'])->enableHydration(false)->toArray();                        
+					$getClientRequest = $this->ClientRequests->Clients->find("all")->select(['id','company_name'])->where(['id'=>$contractor_client[0]])->order(['company_name'=>'ASC'])->enableHydration(false)->toArray();
 					$client_name = $getClientRequest[0]['company_name'];
 					if($client_name!='CanQualify Marketplace Listing') {
 						$this->getMailer('User')->send('send_request', [$contractor, $this->request->getData(), $client]);

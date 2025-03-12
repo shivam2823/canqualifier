@@ -45,7 +45,7 @@ class ModulesController extends AppController
      */
     public function view($id = null)
     {
-        $module = $this->Modules->get($id, contain: ['ClientModules']);
+        $module = $this->Modules->get($id, ["contain" => ['ClientModules']]);
 
         $this->set('module', $module);
     }
@@ -80,7 +80,7 @@ class ModulesController extends AppController
      */
     public function edit($id = null)
     {
-        $module = $this->Modules->get($id, contain: []);
+        $module = $this->Modules->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $module = $this->Modules->patchEntity($module, $this->request->getData());
             $module->modified_by = $this->getRequest()->getSession()->read('Auth.User.id');

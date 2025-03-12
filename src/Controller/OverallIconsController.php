@@ -215,7 +215,7 @@ class OverallIconsController extends AppController
 		->contain(['Icons'])
     	->contain(['Icons.BenchmarkTypes'])
 		->where(['OverallIcons.client_id'=>$client_id, 'OverallIcons.contractor_id'=>$contractor_id])
-		->orderBy(['OverallIcons.created'=>'DESC'])
+		->order(['OverallIcons.created'=>'DESC'])
 		->limit(1)
 		->first();
 		$this->set(compact('overallIconPrev'));
@@ -345,7 +345,7 @@ class OverallIconsController extends AppController
 			->contain(['Icons'])
         	->contain(['Icons.BenchmarkTypes'])
 			->where(['OverallIcons.client_id'=>$client_id, 'OverallIcons.contractor_id'=>$contractor_id])
-			->orderBy(['OverallIcons.created'=>'DESC'])
+			->order(['OverallIcons.created'=>'DESC'])
 			->limit(1)
 			->first();
 			$this->set(compact('overallIconPrev'));

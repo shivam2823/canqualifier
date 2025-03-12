@@ -51,7 +51,7 @@ class LeadNotesController extends AppController
      */
     public function view($id = null)
     {
-        $leadNote = $this->LeadNotes->get($id, contain: ['Leads', 'CustomerRepresentative']);
+        $leadNote = $this->LeadNotes->get($id, ["contain" => ['Leads', 'CustomerRepresentative']]);
 
         $this->set('leadNote', $leadNote);
     }
@@ -149,7 +149,7 @@ class LeadNotesController extends AppController
         $this->loadModel('Contractors');
         $this->loadModel('NotesStatus');     
 	   	      
-        $leadNote = $this->LeadNotes->get($id, contain: []);
+        $leadNote = $this->LeadNotes->get($id);
         $lead = $this->Leads->get($leadNote->lead_id, [
             'contain' => ['LeadStatus']
         ]);

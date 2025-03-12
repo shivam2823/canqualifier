@@ -42,7 +42,7 @@ class TrainingHelper extends Helper
 		}
      $trainings = [];
      foreach($employeeSites as $site_id) {
-        $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['active'=> true, 'category_id IS'=>$parent_id, "site_ids->'s_ids' @>"=>'["'.$site_id.'"]'])->orderBy(['category_order'])->enableHydration(false)->toArray();
+        $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['active'=> true, 'category_id IS'=>$parent_id, "site_ids->'s_ids' @>"=>'["'.$site_id.'"]'])->order(['category_order'])->enableHydration(false)->toArray();
             foreach($getTrainings as $key => $val) {
                 $trainings[$val['id']] = $val;
             }
@@ -268,7 +268,7 @@ $getTrainings = $conn->execute("SELECT id, name FROM trainings WHERE active=true
 		->toArray();
 
      foreach($allSites as $key => $val ) {   	     	     	
-        $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['active'=> true, "site_ids->'s_ids' @>"=>'["'.$key.'"]'])->orderBy(['category_order'])
+        $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['active'=> true, "site_ids->'s_ids' @>"=>'["'.$key.'"]'])->order(['category_order'])
         ->enableHydration(false)
         ->toArray();
         foreach($getTrainings as $traning) {
@@ -312,7 +312,7 @@ $getTrainings = $conn->execute("SELECT id, name FROM trainings WHERE active=true
 	$getAnswers = $this->TrainingAnswers
 		->find('list', keyField: 'id', valueField: 'created')		
 		->where(['employee_id'=>$employee_id])
-		->orderBy(['id'=>'DESC'])
+		->order(['id'=>'DESC'])
 		->first();
 	return $getAnswers;
 		// pr($getAnswers);

@@ -18,7 +18,7 @@ class CategoryComponent extends Component {
 	$year = $this->CanqYears
 		->find('list', keyField: 'year', valueField: 'year')			
 		->where(['id < ' .$subquery1->id])	
-		->orderBy(['year'=>'ASC'])
+		->order(['year'=>'ASC'])
 		->enableHydration(false)
 		->toArray();	
 			
@@ -44,14 +44,14 @@ class CategoryComponent extends Component {
 	$year = $this->CanqYears
 			->find('list', keyField: 'year', valueField: 'year')			
 			->where(['id BETWEEN ' .$subquery1->id. ' AND'=>$subquery2->id])	
-			->orderBy(['id'=>'ASC'])
+			->order(['id'=>'ASC'])
 			->enableHydration(false)
 			->toArray();		
 	}
 	else{
 	$year = $this->CanqYears
 			->find('list', keyField: 'year', valueField: 'year')
-			->orderBy(['id'=>'ASC'])
+			->order(['id'=>'ASC'])
 			->enableHydration(false)
 			->toArray();						
 	}	
@@ -66,7 +66,7 @@ class CategoryComponent extends Component {
 	->find('all')
 	->select(['id', 'name'])
 	->contain(['Categories'=>['conditions'=>['Categories.active'=>true], 'fields'=>['id', 'name', 'category_id', 'service_id'], 'sort'=>['id'=>'ASC']]])
-	->orderBy('id')
+	->order('id')
 	->enableHydration(false)
 	->toArray();
 

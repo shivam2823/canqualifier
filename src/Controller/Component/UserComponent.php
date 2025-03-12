@@ -311,7 +311,7 @@ class UserComponent extends Component {
 		else {
 			$order = ['id'=>'ASC'];
 		}
-		$sites = $this->Sites->find('list', keyField: 'id', valueField: 'name')->where([$where])->orderBy($order)->toArray();
+		$sites = $this->Sites->find('list', keyField: 'id', valueField: 'name')->where([$where])->order($order)->toArray();
 		return $sites;
 	}
 
@@ -577,7 +577,7 @@ class UserComponent extends Component {
 		        ->select(['id','name'])
 		        ->contain(['ClientServices' => ['conditions'=>['client_id IN'=>$clients], 'fields'=>['service_id','client_id'] ]])
 		        ->enableHydration(false)
-		        ->orderBy(['id'])
+		        ->order(['id'])
 		        ->toArray();
 
 		$totalPrice = 0;
@@ -1053,7 +1053,7 @@ class UserComponent extends Component {
 		->find('list', keyField: 'id', valueField: 'question')
 		->select(['id','question'])
 		->where(['show_on_register_form'=>true, 'active'=>true])
-		->orderBy(['ques_order'=>'ASC','Questions.id'=>'ASC'])
+		->order(['ques_order'=>'ASC','Questions.id'=>'ASC'])
 		->toArray();
 
 	    foreach($questions as $key=>$val) {
@@ -1103,7 +1103,7 @@ class UserComponent extends Component {
 		->find('list', keyField: 'id', valueField: 'question')
 		->select(['id','question'])
 		->where(['show_on_register_form'=>true, 'active'=>true])
-		->orderBy(['ques_order'=>'ASC','Questions.id'=>'ASC'])
+		->order(['ques_order'=>'ASC','Questions.id'=>'ASC'])
 		->toArray();
 
 		$quesField['Company name'] = 'company_name';

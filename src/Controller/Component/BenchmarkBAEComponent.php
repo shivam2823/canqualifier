@@ -44,7 +44,7 @@ class BenchmarkBAEComponent extends Component {
 			    ->find('list', keyField: 'id', valueField: 'answer')
 			    ->where(['contractor_id'=>$contractor_id, 'Questions.safety_type IN'=>['FTEMP','STEMP'], 'year IN'=>$year])
 			    ->contain(['Questions'])
-			    ->orderBy(['year'=>'ASC'])
+			    ->order(['year'=>'ASC'])
 			    ->toArray();
 			    $totalEmp = array_sum($contractorAnswers);
 		    }

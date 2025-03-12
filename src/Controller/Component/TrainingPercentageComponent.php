@@ -44,12 +44,12 @@ class TrainingPercentageComponent extends Component
          foreach($employeeSites as $site_id) {
             if($training_id != null){
                 
-            $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['id'=>$training_id,'active'=> true, 'category_id IS'=>$parent_id, "site_ids->'s_ids' @>"=>'["'.$site_id.'"]'])->orderBy(['category_order'])->enableHydration(false)->toArray();
+            $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['id'=>$training_id,'active'=> true, 'category_id IS'=>$parent_id, "site_ids->'s_ids' @>"=>'["'.$site_id.'"]'])->order(['category_order'])->enableHydration(false)->toArray();
                 foreach($getTrainings as $key => $val) {
                     $trainings[$val['id']] = $val;
                 }
             }else{
-                $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['active'=> true, 'category_id IS'=>$parent_id, "site_ids->'s_ids' @>"=>'["'.$site_id.'"]'])->orderBy(['category_order'])->enableHydration(false)->toArray();
+                $getTrainings = $this->Trainings->find()->select(['id', 'name', 'site_ids'])->where(['active'=> true, 'category_id IS'=>$parent_id, "site_ids->'s_ids' @>"=>'["'.$site_id.'"]'])->order(['category_order'])->enableHydration(false)->toArray();
                 foreach($getTrainings as $key => $val) {
                     $trainings[$val['id']] = $val;
                 }
@@ -347,7 +347,7 @@ class TrainingPercentageComponent extends Component
             $getCompletionDate = $this->TrainingAnswers->find()
                 ->select('created')
                 ->where(['employee_id'=> $employee_id, 'answer !=' => '','training_questions_id IN' => $t_question_list])
-                ->orderBy(['created' => 'DESC'])
+                ->order(['created' => 'DESC'])
                 ->limit(1)
                 ->toArray();
 

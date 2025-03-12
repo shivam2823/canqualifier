@@ -34,7 +34,7 @@ class CategoryHelper extends Helper
 		$query = $this->Categories
 		->find('all', fields: ['id','name','year_based', 'category_id'])			
 		->where(['service_id' => $service_id, 'active' => 1, 'category_id IS' => $parent_id])
-		->orderBy(['category_order' => 'ASC'])
+		->order(['category_order' => 'ASC'])
 		->enableHydration(false)
 		->toArray();		
 		return $query;

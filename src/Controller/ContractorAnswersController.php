@@ -633,14 +633,14 @@ class ContractorAnswersController extends AppController
        				//->where(['ContractorAnswers.question_id IN'=>$exp_ques_id,'CAST(answer AS DATE) <='=>$nextDate])
        				->where(['ContractorAnswers.question_id IN'=>$exp_ques_id,'CAST(answer AS DATE) <='=>$nextDate,'ContractorAnswers.contractor_id IN'=>$contractors])
        				->contain(['Contractors','Questions.Categories'])
-       				->orderBy(['CAST(ContractorAnswers.answer AS DATE)'=>'ASC'])
+       				->order(['CAST(ContractorAnswers.answer AS DATE)'=>'ASC'])
        				->toArray();
         }else{
         	$ExpriedDate = $this->ContractorAnswers->find()
        				//->where(['ContractorAnswers.question_id IN'=>$exp_ques_id,'CAST(answer AS DATE) <='=>$nextDate])
        				->where(['ContractorAnswers.question_id IN'=>$exp_ques_id])
        				->contain(['Contractors','Questions.Categories'])
-       				->orderBy(['CAST(ContractorAnswers.answer AS DATE)'=>'ASC'])
+       				->order(['CAST(ContractorAnswers.answer AS DATE)'=>'ASC'])
        				->toArray();
         } 
         

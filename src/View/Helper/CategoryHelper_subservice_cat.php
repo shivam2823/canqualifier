@@ -70,7 +70,7 @@ class CategoryHelper extends Helper
 
 	$year = $this->CanqYears
 		->find('list', keyField: 'year', valueField: 'year')
-		->orderBy(['id'=>'ASC'])
+		->order(['id'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
 
@@ -106,7 +106,7 @@ class CategoryHelper extends Helper
 	     	 	]
 		]
 	)
-	->orderBy(['category_order'=>'ASC'])
+	->order(['category_order'=>'ASC'])
 	->enableHydration(false)
 	->toArray();
 

@@ -28,7 +28,7 @@ class EmpBasicCategoryHelper extends Helper
 	    $empCategories = $this->EmployeeCategories
 	    ->find('all', fields: ['id','name', 'employee_category_id', 'is_parent'])
 	    ->where(['active'=>true, 'EmployeeCategories.id IN'=>[19,20]])	
-	    ->orderBy(['employee_category_order'=>'ASC', 'EmployeeCategories.id'=>'ASC'])
+	    ->order(['employee_category_order'=>'ASC', 'EmployeeCategories.id'=>'ASC'])
 	    ->enableHydration(false)
 	    ->toArray();
 		

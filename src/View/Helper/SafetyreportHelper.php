@@ -17,7 +17,7 @@ class SafetyreportHelper extends Helper
 		$matrix = $this->OverallIcons
 		->find()
 		->where(['OverallIcons.client_id'=>$client_id, 'OverallIcons.contractor_id'=>$contractor_id])
-		->orderBy(['OverallIcons.created'=>'DESC'])
+		->order(['OverallIcons.created'=>'DESC'])
 		->limit(1)
 		->toArray();
 
@@ -30,7 +30,7 @@ class SafetyreportHelper extends Helper
 		$matrix = $this->Icons
 		->find()
 		->where(['Icons.client_id'=>$client_id, 'Icons.contractor_id'=>$contractor_id])
-		->orderBy(['Icons.created'=>'DESC'])
+		->order(['Icons.created'=>'DESC'])
 		->limit(1)
 		->toArray();
 

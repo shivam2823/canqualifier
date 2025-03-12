@@ -272,7 +272,7 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-        $user = $this->Users->get($id, contain: ['Roles']);
+        $user = $this->Users->get($id, ['contain' => ['Roles']]);
 
         $this->set('user', $user);
     }
@@ -308,7 +308,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, contain: []);
+        $user = $this->Users->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $user->modified_by = $this->getRequest()->getSession()->read('Auth.User.id');
@@ -564,18 +564,18 @@ class UsersController extends AppController
 
     public function loginAs()
     {
-    $clientList = $this->Users->find('list', keyField: 'username', valueField: 'client_user.client.company_name')->where(['role_id' => CLIENT, 'active'=>true,])->contain(['ClientUsers'])->contain(['ClientUsers.Clients'])->orderBy(['company_name'])->toArray();
+    $clientList = $this->Users->find('list', ['keyField' => 'username', 'valueField' => 'client_user.client.company_name'])->where(['role_id' => CLIENT, 'active'=>true,])->contain(['ClientUsers'])->contain(['ClientUsers.Clients'])->order(['company_name'])->toArray();
 
-    $contractorList = $this->Users->find('list', keyField: 'username', valueField: 'contractor.company_name')->where(['role_id' => CONTRACTOR, 'company_name !='=>''])->contain(['Contractors'])->orderBy(['company_name'])->toArray(); 
+    $contractorList = $this->Users->find('list', ['keyField' => 'username', 'valueField' => 'contractor.company_name'])->where(['role_id' => CONTRACTOR, 'company_name !='=>''])->contain(['Contractors'])->order(['company_name'])->toArray();
 
-    $employeeList = $this->Users->find('list', keyField: 'username', valueField: 'username')->where(['role_id' => EMPLOYEE, 'is_login_enable' =>true,'user_entered_email'=>true])->contain(['Employees'])->orderBy(['username'])->toArray(); 
-    $employeeList1 = $this->Users->find('list', keyField: 'id', valueField: 'login_username')->where(['role_id' => EMPLOYEE, 'is_login_enable' =>true,'has_email'=>false])->contain(['Employees'])->orderBy(['username'])->toArray(); 
+    $employeeList = $this->Users->find('list', ['keyField' => 'username', 'valueField' => 'username'])->where(['role_id' => EMPLOYEE, 'is_login_enable' =>true,'user_entered_email'=>true])->contain(['Employees'])->order(['username'])->toArray();
+    $employeeList1 = $this->Users->find('list', ['keyField' => 'id', 'valueField' => 'login_username'])->where(['role_id' => EMPLOYEE, 'is_login_enable' =>true,'has_email'=>false])->contain(['Employees'])->order(['username'])->toArray();
 
-    $crList = $this->Users->find('list', keyField: 'username', valueField: 'username')->where(['role_id' => CR, 'active'=>true])->orderBy(['username'])->toArray();
+    $crList = $this->Users->find('list', ['keyField' => 'username', 'valueField' => 'username'])->where(['role_id' => CR, 'active'=>true])->order(['username'])->toArray();
 
-    $adminList = $this->Users->find('list', keyField: 'username', valueField: 'username')->where(['role_id' => ADMIN, 'active'=>true])->orderBy(['username'])->toArray();
+    $adminList = $this->Users->find('list', ['keyField' => 'username', 'valueField' => 'username'])->where(['role_id' => ADMIN, 'active'=>true])->order(['username'])->toArray();
 
-    $contractorUserList = $this->Users->find('list', keyField: 'username', valueField: 'username')->where(['role_id' => CONTRACTOR_ADMIN, 'active'=>true])->orderBy(['username'])->toArray();   
+    $contractorUserList = $this->Users->find('list', ['keyField' => 'username', 'valueField' => 'username'])->where(['role_id' => CONTRACTOR_ADMIN, 'active'=>true])->order(['username'])->toArray();
     if(!empty($contractorUserList)){
     foreach($contractorUserList as $key =>$contractorUser){
         $getUser = $this->Users->find()->where(['username' => $contractorUser])->first();
@@ -589,12 +589,12 @@ class UsersController extends AppController
          unset($contractorUserList[$key]);
         }       
     }}
-    $clientUserList = $this->Users->find('list', keyField: 'username', valueField: 'username')
+    $clientUserList = $this->Users->find('list', ['keyField' => 'username', 'valueField' => 'username'])
         ->where([['OR'=>['AND'=>
                      ['role_id' => CLIENT_ADMIN],
                      ['role_id' => CLIENT_VIEW],
                      ['role_id' => CLIENT_BASIC]
-         ] ], 'active'=>true])->orderBy(['username'])->toArray();
+         ] ], 'active'=>true])->order(['username'])->toArray();
     
     if(!empty($clientUserList)){
         foreach($clientUserList as $key =>$clientUser){
@@ -901,7 +901,7 @@ class UsersController extends AppController
     public function myProfile()
     {
 	    $id = $this->getRequest()->getSession()->read('Auth.User.id');
-	    $user = $this->Users->get($id, contain: []);
+	    $user = $this->Users->get($id);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -927,9 +927,7 @@ class UsersController extends AppController
     public function changePassword()
     {
 	    $id = $this->getRequest()->getSession()->read('Auth.User.id');
-	    $user = $this->Users->get($id,
-        fields: ['id','username'],
-        contain: []);
+	    $user = $this->Users->get($id,['fields' => ['id','username']]);
         if ($this->request->is(['patch', 'post', 'put'])) {			
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $user->modified_by = $id;
@@ -1060,7 +1058,7 @@ class UsersController extends AppController
     }
 
     public function resetPasswordUsers() {  
-    	$users = $this->Users->find('list', keyField: 'id', valueField: 'username')->toArray();
+    	$users = $this->Users->find('list', ['keyField' => 'id', 'valueField' => 'username'])->toArray();
     	$url = Router::Url(['controller' => 'users', 'action' => 'login'], true);
 
     	if ($this->request->is(['patch', 'post', 'put'])) {	

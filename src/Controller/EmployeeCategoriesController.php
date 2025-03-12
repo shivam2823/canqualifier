@@ -76,7 +76,7 @@ class EmployeeCategoriesController extends AppController
      */
     public function view($id = null)
     {
-        $employeeCategory = $this->EmployeeCategories->get($id, contain: ['EmployeeQuestions']);
+        $employeeCategory = $this->EmployeeCategories->get($id, ['contain' => ['EmployeeQuestions']]);
 		$sub_cat = $this->EmployeeCategories->find()->where(['employee_category_id'=>$id])->toArray();
 		
         $this->set(compact('employeeCategory', 'sub_cat'));
@@ -107,7 +107,7 @@ class EmployeeCategoriesController extends AppController
 		$employeeCategories = $this->EmployeeCategories->find('list');
 		if($this->User->isClient()) {
             $client_id = $this->getRequest()->getSession()->read('Auth.User.client_id');
-            $employeeCategories = $this->EmployeeCategories->find('list', limit: 200)->where(['EmployeeCategories.client_id'=>$client_id,'is_parent'=>true]);;  
+            $employeeCategories = $this->EmployeeCategories->find('list', ['limit' => 200])->where(['EmployeeCategories.client_id'=>$client_id,'is_parent'=>true]);;
         } 
         $this->set(compact('employeeCategory', 'employeeCategories'));
     }
@@ -121,7 +121,7 @@ class EmployeeCategoriesController extends AppController
      */
     public function edit($id = null)
     {
-        $employeeCategory = $this->EmployeeCategories->get($id, contain: []);
+        $employeeCategory = $this->EmployeeCategories->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $employeeCategory = $this->EmployeeCategories->patchEntity($employeeCategory, $this->request->getData());
 			$employeeCategory->modified_by = $this->getRequest()->getSession()->read('Auth.User.id');
@@ -135,7 +135,7 @@ class EmployeeCategoriesController extends AppController
 		$employeeCategories = $this->EmployeeCategories->find('list');
 		if($this->User->isClient()) {
             $client_id = $this->getRequest()->getSession()->read('Auth.User.client_id');
-            $employeeCategories = $this->EmployeeCategories->find('list', limit: 200)->where(['EmployeeCategories.client_id'=>$client_id,'is_parent'=>true]);;  
+            $employeeCategories = $this->EmployeeCategories->find('list', ['limit' => 200])->where(['EmployeeCategories.client_id'=>$client_id,'is_parent'=>true]);;
         } 
         $this->set(compact('employeeCategory', 'employeeCategories'));
     }

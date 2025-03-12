@@ -1415,7 +1415,7 @@ class ContractorsController extends AppController
         ->contain(['Users'=>['fields'=>['username' ,'active']]])
         //->contain(['ContractorClients'=>['fields'=>['contractor_id', 'waiting_on'], 'conditions'=> [$whereConCli]]])
         ->where([$where,$where2])
-        ->orderBy($order)
+        ->order($order)
         ->toArray();
     }
     if($export_type!='0') {
