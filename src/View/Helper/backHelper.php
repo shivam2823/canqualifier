@@ -103,7 +103,7 @@ class CategoryHelper extends Helper
     public function checkHidden($year=null, $question_ids=null)
     {
 	$this->ContractorAnswers = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorAnswers');
-	$query = $this->ContractorAnswers->find('list', keyField: 'question_id', valueField: 'answer')->where(['question_id IN' =>$question_ids, 'year'=>$year, 'answer'=>'No'])->toArray();
+	$query = $this->ContractorAnswers->find('list', ['keyField' => 'question_id', 'valueField' => 'answer'])->where(['question_id IN' =>$question_ids, 'year'=>$year, 'answer'=>'No'])->toArray();
 	return $query;
     }
 	public function getQuesCount($catid=null)
@@ -127,7 +127,7 @@ class CategoryHelper extends Helper
 	if($contractor_clients!=null)
 	{
 	$get_questions = $this->ClientQuestions
-	->find('list', keyField: 'question_id', valueField: 'client_id')
+	->find('list', ['keyField' => 'question_id', 'valueField' => 'client_id'])
 	->contain(['Questions'])
 	->where(['Questions.category_id' => $cat_id, 'ClientQuestions.client_id IN' => $contractor_clients])
 	->toArray();

@@ -1601,7 +1601,7 @@ class ContractorsController extends AppController
     public function addMarketplaceClient(){
     $this->loadModel('ContractorClients');
     $this->render(false);
-    $allContractors = $this->Contractors->find('list', keyField: 'id', valueField: 'id')->toArray();
+    $allContractors = $this->Contractors->find('list', ['keyField' => 'id', 'valueField' => 'id'])->toArray();
         foreach ($allContractors as $key => $contractor_id) {
         $contClients = $this->ContractorClients->find('list',['keyField' => 'id', 'valueField' => 'client_id'])->where(['contractor_id'=>$contractor_id])->toArray();
          if((empty($contClients) || (!in_array(4, $contClients)))) {

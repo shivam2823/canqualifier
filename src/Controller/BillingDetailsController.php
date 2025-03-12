@@ -134,7 +134,7 @@ class BillingDetailsController extends AppController
 
     public function manageCards() {
 	    $contractor_id = $this->getRequest()->getSession()->read('Auth.User.contractor_id');
-	    $card_details =  $this->BillingDetails->find('list', keyField: 'id', valueField: 'card_details')->where(['contractor_id'=>$contractor_id])->toArray();
+	    $card_details =  $this->BillingDetails->find('list', ['keyField' => 'id', 'valueField' => 'card_details'])->where(['contractor_id'=>$contractor_id])->toArray();
 
 	    $this->set(compact('card_details'));
     }

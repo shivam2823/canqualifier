@@ -202,7 +202,7 @@ class ContractorSitesController extends AppController
 		
 	}
 		
-	$sites = $this->ContractorSites->find('list', keyField: 'site_id', valueField: 'site_id')->where(['contractor_id'=>$contractor_id,'is_archived'=>false])->toArray();		
+	$sites = $this->ContractorSites->find('list', ['keyField' => 'site_id', 'valueField' => 'site_id'])->where(['contractor_id'=>$contractor_id,'is_archived'=>false])->toArray();
 	$contractor_clients = $this->User->getClients($contractor_id);
 	
     $where = []; 
@@ -372,7 +372,7 @@ class ContractorSitesController extends AppController
         $ConHuntonSites = array();
 
             if(!empty($contractor_id)){
-                $contractorSites = $this->ContractorSites->find('list', keyField: 'site_id', valueField: 'site_id')->where(['contractor_id'=>$contractor_id])->toArray();
+                $contractorSites = $this->ContractorSites->find('list', ['keyField' => 'site_id', 'valueField' => 'site_id'])->where(['contractor_id'=>$contractor_id])->toArray();
                 if(!empty($contractorSites)){
                     $ConHuntonSites = $this->Sites->find('list', ['keyField' => 'id', 'valueField' => 'name'])->where(['client_id'=>6, 'id in' => $contractorSites])->toArray();
                     if(!empty($ConHuntonSites)){

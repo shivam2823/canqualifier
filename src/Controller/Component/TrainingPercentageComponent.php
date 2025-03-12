@@ -143,7 +143,7 @@ class TrainingPercentageComponent extends Component
         $this->TrainingAnswers = \Cake\ORM\TableRegistry::getTableLocator()->get('TrainingAnswers');
 
         $getQuestion = $this->TrainingQuestions
-            ->find('list', keyField: 'id', valueField: 'training_id')        
+            ->find('list', ['keyField' => 'id', 'valueField' => 'training_id'])
             ->where(['training_id'=>$training_id, 'active'=>true])
             ->toArray();
 
@@ -226,7 +226,7 @@ class TrainingPercentageComponent extends Component
         $this->Sites = \Cake\ORM\TableRegistry::getTableLocator()->get('Sites');
 
         $getQuestion = $this->TrainingQuestions
-            ->find('list', keyField: 'id', valueField: 'training_id')
+            ->find('list', ['keyField' => 'id', 'valueField' => 'training_id'])
             ->where(['training_id'=>$training_id, 'active'=>true])
             ->toArray();
 
@@ -282,7 +282,7 @@ class TrainingPercentageComponent extends Component
             $data['expiration_date'] = strtotime(date('m/d/Y', strtotime('+1 year', strtotime($data['completion_date'])) ));
         }
         $getEmpSiteNamesStr = '';
-        $getEmpSites = $this->EmployeeSites->find('list', keyField: 'site_id', valueField: 'site_id')->where(['employee_id' => $employee_id])->toArray();
+        $getEmpSites = $this->EmployeeSites->find('list', ['keyField' => 'site_id', 'valueField' => 'site_id'])->where(['employee_id' => $employee_id])->toArray();
         if(!empty($getEmpSites)){
             $getEmpSiteNames = $this->Sites->find('list', keyField: 'id', valueField: 'name')->where(['id in' => $getEmpSites])->toArray();
 

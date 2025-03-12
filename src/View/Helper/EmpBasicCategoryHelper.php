@@ -92,7 +92,7 @@ class EmpBasicCategoryHelper extends Helper
 	$percent = $ques_cnt = $ans_cnt = 0;
     // Regualar Quesiton 
     $questionIds  = $this->EmployeeQuestions
-		->find('list', keyField: 'id', valueField: 'id')		
+		->find('list', ['keyField' => 'id', 'valueField' => 'id'])
 		->where(['EmployeeQuestions.active'=>true, 'EmployeeQuestions.is_parent'=>false, 'EmployeeQuestions.client_based'=>false, 
 		'EmployeeQuestions.employee_category_id'=>$employee_category_id,'EmployeeQuestions.employee_question_id IS'=>null
 		])

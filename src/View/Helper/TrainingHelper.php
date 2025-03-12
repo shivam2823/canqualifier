@@ -166,7 +166,7 @@ $getTrainings = $conn->execute("SELECT id, name FROM trainings WHERE active=true
 	$percent = 0;
 
 	$get_questions = $this->TrainingQuestions
-		->find('list', keyField: 'id', valueField: 'training_id')		
+		->find('list', ['keyField' => 'id', 'valueField' => 'training_id'])
 		->where(['training_id'=>$training_id, 'active'=>true])
 		->toArray();
 		
@@ -190,7 +190,7 @@ $getTrainings = $conn->execute("SELECT id, name FROM trainings WHERE active=true
 	$this->TrainingAnswers = \Cake\ORM\TableRegistry::getTableLocator()->get('TrainingAnswers');
 
 	$getQuestion = $this->TrainingQuestions
-		->find('list', keyField: 'id', valueField: 'training_id')		
+		->find('list', ['keyField' => 'id', 'valueField' => 'training_id'])
 		->where(['training_id'=>$training_id, 'active'=>true])
 		->toArray();
 
@@ -224,7 +224,7 @@ $getTrainings = $conn->execute("SELECT id, name FROM trainings WHERE active=true
 	$this->TrainingQuestions = \Cake\ORM\TableRegistry::getTableLocator()->get('TrainingQuestions');
 
 	$getQuestion = $this->TrainingQuestions
-		->find('list', keyField: 'id', valueField: 'training_id')		
+		->find('list', ['keyField' => 'id', 'valueField' => 'training_id'])
 		->where(['training_id'=>$training_id, 'active'=>true])
 		->toArray();
 
@@ -262,7 +262,7 @@ $getTrainings = $conn->execute("SELECT id, name FROM trainings WHERE active=true
      
     $allsitesTrain = array();
     $allSites = $this->EmployeeSites
-		->find('list', keyField: 'site_id', valueField: 'site.name')
+		->find('list', ['keyField' => 'site_id', 'valueField' => 'site.name'])
 		->contain(['Sites'])		
 		->where(['employee_id'=>$employee_id])
 		->toArray();
@@ -310,7 +310,7 @@ $getTrainings = $conn->execute("SELECT id, name FROM trainings WHERE active=true
 	$this->TrainingAnswers = \Cake\ORM\TableRegistry::getTableLocator()->get('TrainingAnswers');
 
 	$getAnswers = $this->TrainingAnswers
-		->find('list', keyField: 'id', valueField: 'created')		
+		->find('list', ['keyField' => 'id', 'valueField' => 'created'])
 		->where(['employee_id'=>$employee_id])
 		->order(['id'=>'DESC'])
 		->first();

@@ -77,7 +77,7 @@ class ContractorClientsController extends AppController
     $contractor_id = $this->getRequest()->getSession()->read('Auth.User.contractor_id');
     $contractor = $this->ContractorClients->Contractors->get($contractor_id);
     
-    $clients = $this->ContractorClients->find('list', keyField: 'client_id', valueField: 'client_id')->where(['contractor_id'=>$contractor_id])->toArray();
+    $clients = $this->ContractorClients->find('list', ['keyField' => 'client_id', 'valueField' => 'client_id'])->where(['contractor_id'=>$contractor_id])->toArray();
     $tempClient = $this->ContractorTempclients->find('list', ['keyField'=>'client_id', 'valueField'=>'client_id'])->where(['contractor_id'=>$contractor_id])->toArray();
 
     // on client request accept add client to ContractorTempclients

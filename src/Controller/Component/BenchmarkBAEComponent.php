@@ -36,12 +36,12 @@ class BenchmarkBAEComponent extends Component {
 		    $year = end($year_range);
 
 		    //$query = $this->ContractorAnswers->find('list', ['keyField'=>'question_id', 'valueField'=>'answer'])->where(['question_id' =>36, 'year'=>$year, 'answer'=>'No', 'contractor_id'=>$contractor_id])->toArray();
-		    $query = $this->ContractorAnswers->find('list', keyField: 'question_id', valueField: 'answer')->where(['question_id'=>37, 'year'=>$year, 'answer'=>'No', 'contractor_id'=>$contractor_id])->toArray();
+		    $query = $this->ContractorAnswers->find('list', ['keyField' => 'question_id', 'valueField' => 'answer'])->where(['question_id'=>37, 'year'=>$year, 'answer'=>'No', 'contractor_id'=>$contractor_id])->toArray();
 
 		    $totalEmp = 0;
 		    if(!empty($query)){	
 			    $contractorAnswers = $this->ContractorAnswers
-			    ->find('list', keyField: 'id', valueField: 'answer')
+			    ->find('list', ['keyField' =>  'id', 'valueField' => 'answer'])
 			    ->where(['contractor_id'=>$contractor_id, 'Questions.safety_type IN'=>['FTEMP','STEMP'], 'year IN'=>$year])
 			    ->contain(['Questions'])
 			    ->order(['year'=>'ASC'])

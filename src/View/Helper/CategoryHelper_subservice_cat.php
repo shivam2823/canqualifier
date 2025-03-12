@@ -21,7 +21,7 @@ class CategoryHelper extends Helper
 	$this->ContractorInvoices = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorInvoices');
 
 	$services = $this->ContractorInvoices
-		->find('list', keyField: 'id', valueField: 'service_id')			
+		->find('list', ['keyField' => 'id', 'valueField' => 'service_id'])
 		->where(['contractor_id'=>$contractor_id])
 		->toArray();
 	
@@ -69,7 +69,7 @@ class CategoryHelper extends Helper
 		->toArray();*/
 
 	$year = $this->CanqYears
-		->find('list', keyField: 'year', valueField: 'year')
+		->find('list', ['keyField' => 'year', 'valueField' => 'year'])
 		->order(['id'=>'ASC'])
 		->enableHydration(false)
 		->toArray();
@@ -86,7 +86,7 @@ class CategoryHelper extends Helper
 
 	// get question categories
 	$client_cat = $this->ClientQuestions
-		->find('list', keyField: 'question.id', valueField: 'question.category_id')
+		->find('list', ['keyField' => 'question.id', 'valueField' => 'question.category_id'])
 		->contain(['Questions'])
 		->where(['Questions.active'=>true, 'ClientQuestions.client_id IN'=>$contractor_clients])
 		->distinct('Questions.category_id')
@@ -215,7 +215,7 @@ class CategoryHelper extends Helper
     public function checkHidden($year=null, $question_ids=null,$contractor_id=null)
     {
 	$this->ContractorAnswers = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorAnswers');
-	$query = $this->ContractorAnswers->find('list', keyField: 'question_id', valueField: 'answer')->where(['question_id IN' =>$question_ids, 'year'=>$year, 'answer'=>'No', 'contractor_id'=>$contractor_id])->toArray();
+	$query = $this->ContractorAnswers->find('list', ['keyField' => 'question_id', 'valueField' => 'answer'])->where(['question_id IN' =>$question_ids, 'year'=>$year, 'answer'=>'No', 'contractor_id'=>$contractor_id])->toArray();
 
 	return $query;
     }
@@ -231,7 +231,7 @@ class CategoryHelper extends Helper
 	if($contractor_clients!=null)
 	{
 		$get_questions = $this->ClientQuestions
-		->find('list', keyField: 'question_id', valueField: 'client_id')
+		->find('list', ['keyField' => 'question_id', 'valueField' => 'client_id'])
 		->contain(['Questions'])
 		->where(['Questions.category_id'=>$cat_id, 'Questions.active'=>true,'ClientQuestions.client_id IN'=>$contractor_clients])
 		->toArray();

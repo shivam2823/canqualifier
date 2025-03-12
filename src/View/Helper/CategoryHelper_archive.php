@@ -21,7 +21,7 @@ class CategoryHelper extends Helper
 	$this->ContractorInvoices = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorInvoices');
 
 	$services = $this->ContractorInvoices
-		->find('list', keyField: 'id', valueField: 'service_id')			
+		->find('list', ['keyField' => 'id', 'valueField' => 'service_id'])
 		->where(['contractor_id'=>$contractor_id])
 		->toArray();
 	
@@ -47,10 +47,10 @@ class CategoryHelper extends Helper
     {
 	$this->CanqYears = \Cake\ORM\TableRegistry::getTableLocator()->get('CanqYears');
 	
-	$subquery1 = $this->CanqYears->find('all', fields: ['id'])->where(['status' =>'start'])->first();
-	$subquery2 = $this->CanqYears->find('all', fields: ['id'])->where(['status' =>'end'])->first();
+	$subquery1 = $this->CanqYears->find('all', ['fields' => ['id']])->where(['status' =>'start'])->first();
+	$subquery2 = $this->CanqYears->find('all', ['fields' => ['id']])->where(['status' =>'end'])->first();
 	$year = $this->CanqYears
-		->find('list', keyField: 'year', valueField: 'year')			
+		->find('list', ['keyField' => 'year', 'valueField' => 'year'])
 		->where(['id BETWEEN ' .$subquery1->id. ' AND'=>$subquery2->id])	
 		->order(['id'=>'ASC'])
 		->enableHydration(false)
@@ -67,7 +67,7 @@ class CategoryHelper extends Helper
 
 	// get question categories
 	$client_cat = $this->ClientQuestions
-		->find('list', keyField: 'question.id', valueField: 'question.category_id')
+		->find('list', ['keyField' => 'question.id', 'valueField' => 'question.category_id'])
 		->contain(['Questions'])
 		->where(['Questions.active'=>true, 'ClientQuestions.client_id IN'=>$contractor_clients])
 		->distinct('Questions.category_id')
@@ -104,9 +104,9 @@ class CategoryHelper extends Helper
 	
 	if($archive !== null) {
 		$this->CanqYears = \Cake\ORM\TableRegistry::getTableLocator()->get('CanqYears');	
-		$subquery1 = $this->CanqYears->find('all', fields: ['id'])->where(['status' =>'start'])->first();	
+		$subquery1 = $this->CanqYears->find('all', ['fields' => ['id']])->where(['status' =>'start'])->first();
 		$year_range = $this->CanqYears
-			->find('list', keyField: 'year', valueField: 'year')			
+			->find('list', ['keyField' => 'year', 'valueField' => 'year'])
 			->where(['id < ' .$subquery1->id])	
 			->order(['year'=>'ASC'])
 			->enableHydration(false)
@@ -211,7 +211,7 @@ class CategoryHelper extends Helper
     public function checkHidden($year=null, $question_ids=null,$contractor_id=null)
     {
 	$this->ContractorAnswers = \Cake\ORM\TableRegistry::getTableLocator()->get('ContractorAnswers');
-	$query = $this->ContractorAnswers->find('list', keyField: 'question_id', valueField: 'answer')->where(['question_id IN' =>$question_ids, 'year'=>$year, 'answer'=>'No', 'contractor_id'=>$contractor_id])->toArray();
+	$query = $this->ContractorAnswers->find('list', ['keyField' => 'question_id', 'valueField' => 'answer'])->where(['question_id IN' =>$question_ids, 'year'=>$year, 'answer'=>'No', 'contractor_id'=>$contractor_id])->toArray();
 
 	return $query;
     }
@@ -227,7 +227,7 @@ class CategoryHelper extends Helper
 	if($contractor_clients!=null)
 	{
 		$get_questions = $this->ClientQuestions
-		->find('list', keyField: 'question_id', valueField: 'client_id')
+		->find('list', ['keyField' => 'question_id', 'valueField' => 'client_id'])
 		->contain(['Questions'])
 		->where(['Questions.category_id'=>$cat_id, 'Questions.active'=>true,'ClientQuestions.client_id IN'=>$contractor_clients])
 		->toArray();

@@ -446,7 +446,7 @@ class ClientUsersController extends AppController
 
 	if($this->User->isAdmin()) {
 		//$getRole = $this->ClientUsers->Clients->find('list', ['keyField'=>'id', 'valueField'=>'user.role_id'])->contain('Users')->where(['Clients.id'=>$client_id])->toArray();
-        $getRole = $this->ClientUsers->find('list', keyField: 'client_id', valueField: 'user.role_id')->contain('Users')->where(['ClientUsers.client_id'=>$client_id ,'Users.role_id'=>CLIENT])->toArray();
+        $getRole = $this->ClientUsers->find('list', ['keyField' => 'client_id', 'valueField' => 'user.role_id'])->contain('Users')->where(['ClientUsers.client_id'=>$client_id ,'Users.role_id'=>CLIENT])->toArray();
 
 		$roleId =  $getRole[$client_id];
 	}
@@ -491,7 +491,7 @@ class ClientUsersController extends AppController
 
 	if($this->User->isAdmin()) {
 		// $getRole = $this->ClientUsers->Clients->find('list', ['keyField'=>'id', 'valueField'=>'user.role_id'])->contain('Users')->where(['Clients.id'=>$client_id])->toArray();
-        $getRole = $this->ClientUsers->find('list', keyField: 'client_id', valueField: 'user.role_id')->contain('Users')->where(['ClientUsers.client_id'=>$client_id ,'Users.role_id'=>CLIENT])->toArray();
+        $getRole = $this->ClientUsers->find('list', ['keyField' => 'client_id', 'valueField' => 'user.role_id'])->contain('Users')->where(['ClientUsers.client_id'=>$client_id ,'Users.role_id'=>CLIENT])->toArray();
         
 		$roleId =  $getRole[$client_id];
 	}
@@ -507,9 +507,9 @@ class ClientUsersController extends AppController
 	// client all sites
         $clientSites = $this->ClientUsers->Clients->Sites->find('list', ['keyField'=>'id', 'valueField'=>'name' ])->where(['client_id'=>$client_id])->toArray();
 
-        $clientUser = $this->ClientUsers->get($id, contain: ['Users']);
+        $clientUser = $this->ClientUsers->get($id, ['contain' => ['Users']]);
 
-        $selectedSites = $this->ClientUsers->find('list', keyField: 'id', valueField: 'site_ids')->where(['id'=>$id])->toArray();
+        $selectedSites = $this->ClientUsers->find('list', ['keyField' => 'id', 'valueField' => 'site_ids'])->where(['id'=>$id])->toArray();
 
         $csites = $selectedSites[$id]['s_ids'];
         if ($this->request->is(['patch', 'post', 'put'])) {
