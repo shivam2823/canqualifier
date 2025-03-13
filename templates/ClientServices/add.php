@@ -16,7 +16,7 @@
 	    <?php $selectedClient = !empty($client) ? $client->id : reset($clients); ?>
 		    <label class="col-sm-3">Select Client</label>
 		    <div class="col-sm-6"><?= $this->Form->control('current_client_id', ['options'=>$clients, 'default'=>$selectedClient, 'required'=>true,'empty'=>false, 'label'=>false, 'class'=>'form-control']); ?></div>
-		    <div class="col-sm-3"><?= $this->Form->button('<em><i class="fa fa-dot-circle-o"></i></em> Submit', ['type'=>'submit', 'class'=>'btn btn-primary btn-sm']) ?></div>
+		    <div class="col-sm-3"><?= $this->Form->button(' Submit', ['type'=>'submit', 'class'=>'btn btn-primary btn-sm']) ?></div>
 	    </div>
 	    <?= $this->Form->end() ?>
 	</div>
