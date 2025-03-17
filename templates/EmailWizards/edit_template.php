@@ -55,7 +55,7 @@
             <div class="form-group">
                 <?= $this->Form->control('template_content', ['type'=>'hidden','class'=>'template-code','id'=>'template-content']); ?>
                   <?= $this->Form->control('quill_delta', ['type'=>'hidden','class'=>'template-code','id'=>'delta-code']); ?>
-                <?= $this->Form->button('<em><i class=""></i></em> Submit', ['type' => 'submit', 'class'=>'btn btn-success btn-sm']); ?>
+                <?= $this->Form->button('Submit', ['type' => 'submit', 'class'=>'btn btn-success btn-sm']); ?>
             </div>
             <?= $this->Form->end() ?>
         </div>
