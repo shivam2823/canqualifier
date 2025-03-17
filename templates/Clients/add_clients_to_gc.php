@@ -10,7 +10,7 @@
                 echo $this->Form->create(null, ['url'=> ['action'=>'addClientsToGc']]);
                 echo $this->Form->control('gc_client_id', ['options'=>$GC_clients, 'empty'=>true, 'class'=>'form-control', 'label'=>'Select GC']);
                 echo $this->Form->control('parent_client_id', ['options'=>$clients, 'empty'=>true, 'class'=>'form-control', 'label'=>'Select Parent Client']);
-                echo $this->Form->button('<em><i class="fa fa-dot-circle-o"></i></em> Add', ['type'=>'submit', 'class'=>'btn btn-success mt-2']);
+                echo $this->Form->button(' Add', ['type'=>'submit', 'class'=>'btn btn-success mt-2']);
                 echo $this->Form->end();
                 //debug($GC_clients);
                 //debug($clients);
