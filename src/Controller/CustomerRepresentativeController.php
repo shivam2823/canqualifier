@@ -39,7 +39,7 @@ class CustomerRepresentativeController extends AppController
             'limit'  => $totalCount,
             'maxLimit'=> $totalCount
         ];
-    $customerRepresentative = $this->CustomerRepresentative->newEntity();
+    $customerRepresentative = $this->CustomerRepresentative->newEntity([]);
     if ($this->request->is(['patch', 'post', 'put'])) {
         if($this->request->getData('id')!==null) {
             $id = $this->request->getData('id');

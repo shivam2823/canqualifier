@@ -413,7 +413,7 @@ class ContractorsController extends AppController
     $this->loadModel('States');
 	$this->loadModel('CustomerRepresentative');
 
-        $contractor = $this->Contractors->newEntity();
+        $contractor = $this->Contractors->newEntity([]);
 		$waiting_on = $this->User->waiting_status();
 		$customer_rep_ids = Configure::read('Contractor_CR');
 

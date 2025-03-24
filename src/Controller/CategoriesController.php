@@ -78,7 +78,7 @@ class CategoriesController extends AppController
      */
     public function add()
     {
-        $category = $this->Categories->newEntity();
+        $category = $this->Categories->newEntity([]);
         if ($this->request->is('post')) {
             $category = $this->Categories->patchEntity($category, $this->request->getData());
             $category->created_by = $this->getRequest()->getSession()->read('Auth.User.id');

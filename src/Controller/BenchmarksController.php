@@ -56,7 +56,7 @@ class BenchmarksController extends AppController
         'maxLimit'=>$totalCount
 	];
 
-	$benchmark = $this->Benchmarks->newEntity();
+	$benchmark = $this->Benchmarks->newEntity([]);
     if ($this->request->is(['patch', 'post', 'put'])) {
 		if($this->request->getData('current_client_id')!==null) {
 			$client_id = $this->request->getData('current_client_id');
