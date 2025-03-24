@@ -62,7 +62,7 @@ class NaiscCodesController extends AppController
      */
     public function add()
     {
-        $naiscCode = $this->NaiscCodes->newEntity();
+        $naiscCode = $this->NaiscCodes->newEntity([]);
         if ($this->request->is('post')) {
             $naiscCode = $this->NaiscCodes->patchEntity($naiscCode, $this->request->getData());
 			$naiscCode->created_by = $this->getRequest()->getSession()->read('Auth.User.id');

@@ -61,7 +61,7 @@ class CountriesController extends AppController
      */
     public function add()
     {
-        $country = $this->Countries->newEntity();
+        $country = $this->Countries->newEntity([]);
         if ($this->request->is('post')) {
             $country = $this->Countries->patchEntity($country, $this->request->getData());
             $country->created_by = $this->getRequest()->getSession()->read('Auth.User.id');

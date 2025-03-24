@@ -61,7 +61,7 @@ class QuestionTypesController extends AppController
      */
     public function add()
     {
-        $questionType = $this->QuestionTypes->newEntity();
+        $questionType = $this->QuestionTypes->newEntity([]);
         if ($this->request->is('post')) {
             $questionType = $this->QuestionTypes->patchEntity($questionType, $this->request->getData());
             $questionType->created_by = $this->getRequest()->getSession()->read('Auth.User.id');

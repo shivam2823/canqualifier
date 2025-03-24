@@ -34,7 +34,7 @@ class CanqYearsController extends AppController
 	$this->loadModel('Contractors');	
 	$conn = ConnectionManager::get('default');
 
-	$canqYear = $this->CanqYears->newEntity();
+	$canqYear = $this->CanqYears->newEntity([]);
         if ($this->request->is(['patch', 'post', 'put'])) {
 		// Archive Previous year	
 		if($this->request->getData('status') == 'start') {
