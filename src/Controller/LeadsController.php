@@ -440,7 +440,7 @@ class LeadsController extends AppController
         }
         $locations = $this->Sites->find('list', ['keyField' => 'id', 'valueField' => 'name'])->where(['client_id' => $cid])->toArray();
 
-    $lead = $this->Leads->newEntity();
+    $lead = $this->Leads->newEntity([]);
     
     if ($this->request->is('post')) {  
     if(!empty($this->request->getData('client_id'))){
@@ -925,7 +925,7 @@ $this->set('supplierRegistrationChart', $supplierRegistrationChart);
         } 
     }
 
-        $lead = $this->Leads->newEntity();
+        $lead = $this->Leads->newEntity([]);
         if ($this->request->is('post')) {
             $created_by = $this->getRequest()->getSession()->read('Auth.User.id');
         	if(!$this->User->isClient()) {

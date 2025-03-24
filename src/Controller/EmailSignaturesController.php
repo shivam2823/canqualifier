@@ -80,7 +80,7 @@ class EmailSignaturesController extends AppController
     public function add()
     {
        $templates = array('1'=>'Classic','2'=>'Horizontal','3'=>'Wide','4'=>'Compact');
-        $emailSignature = $this->EmailSignatures->newEntity();
+        $emailSignature = $this->EmailSignatures->newEntity([]);
         if ($this->request->is('post')) {
             $emailSignature = $this->EmailSignatures->patchEntity($emailSignature, $this->request->getData());
             $emailSignature->created_by = $this->getRequest()->getSession()->read('Auth.User.id');

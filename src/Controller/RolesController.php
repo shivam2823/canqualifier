@@ -62,7 +62,7 @@ class RolesController extends AppController
      */
     public function add()
     {
-        $role = $this->Roles->newEntity();
+        $role = $this->Roles->newEntity([]);
         if ($this->request->is('post')) {
             $role = $this->Roles->patchEntity($role, $this->request->getData());
             $role->created_by = $this->getRequest()->getSession()->read('Auth.User.id');

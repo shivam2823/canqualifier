@@ -85,7 +85,7 @@ class QuestionsController extends AppController
 	    $this->loadModel('Clients');
 	    $this->loadModel('Services');
 
-        $question = $this->Questions->newEntity();
+        $question = $this->Questions->newEntity([]);
         if ($this->request->is('post')) {
             //debug($this->request->getData());die;
             $postData = $this->request->getData();

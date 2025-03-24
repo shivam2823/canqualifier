@@ -89,7 +89,7 @@ class EmployeeCategoriesController extends AppController
      */
     public function add()
     {
-        $employeeCategory = $this->EmployeeCategories->newEntity();
+        $employeeCategory = $this->EmployeeCategories->newEntity([]);
         if ($this->request->is('post')) {
             $employeeCategory = $this->EmployeeCategories->patchEntity($employeeCategory, $this->request->getData());
 			if($this->User->isClient()) {

@@ -102,7 +102,7 @@ class EmployeeQuestionsController extends AppController
      */
     public function add()
     {
-        $employeeQuestion = $this->EmployeeQuestions->newEntity();
+        $employeeQuestion = $this->EmployeeQuestions->newEntity([]);
         if ($this->request->is('post')) {
             $employeeQuestion = $this->EmployeeQuestions->patchEntity($employeeQuestion, $this->request->getData());
 			if($this->User->isClient()) {

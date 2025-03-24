@@ -78,7 +78,7 @@ class ServicesController extends AppController
      */
     public function add()
     {
-        $service = $this->Services->newEntity();
+        $service = $this->Services->newEntity([]);
         if ($this->request->is('post')) {
             $service = $this->Services->patchEntity($service, $this->request->getData());
             $service->created_by = $this->getRequest()->getSession()->read('Auth.User.id');

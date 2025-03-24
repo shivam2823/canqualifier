@@ -363,7 +363,7 @@ class EmailWizardsController extends AppController
 
     public function createTemplate(){
       $this->loadModel('EmailTemplates');
-      $emailTemplates = $this->EmailTemplates->newEntity();
+      $emailTemplates = $this->EmailTemplates->newEntity([]);
         if ($this->request->is('post')) {
           
             $emailTemplates= $this->EmailTemplates->patchEntity($emailTemplates, $this->request->getData());

@@ -62,7 +62,7 @@ class ProductsController extends AppController
      */
     public function add()
     {
-        $product = $this->Products->newEntity();
+        $product = $this->Products->newEntity([]);
         if ($this->request->is('post')) {
             $product = $this->Products->patchEntity($product, $this->request->getData());
             $product->created_by = $this->getRequest()->getSession()->read('Auth.User.id');
