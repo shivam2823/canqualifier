@@ -99,9 +99,9 @@ class SitesController extends AppController
 	$regions = $this->Sites->Regions->find('list');
 
 
-        $site = $this->Sites->newEntity();
-        $country = $this->Countries->newEntity();
-        $state = $this->States->newEntity();
+        $site = $this->Sites->newEntity([]);
+        $country = $this->Countries->newEntity([]);
+        $state = $this->States->newEntity([]);
         if ($this->request->is('post')) {
            if((($this->request->getData(['country_id']) != null) || ($this->request->getData(['state_id']) != null)) && ($this->request->getData(['country_id']) == 0)){
               $user_entered = true; // User entered Country and State
