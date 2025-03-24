@@ -99,7 +99,7 @@ class ClientUsersController extends AppController
     }
     else { // New Client
         $clientUser = $this->ClientUsers->newEntity([]);
-        $client = $this->ClientUsers->Clients->newEntity();      
+        $client = $this->ClientUsers->Clients->newEntity([]);      
         if($step > 1) {
             $this->Flash->error(__('Please complete step 1'));
             return $this->redirect(['action'=>'addClient/1']);
@@ -112,7 +112,7 @@ class ClientUsersController extends AppController
         }
     }
     // step 4
-    $question = $this->Questions->newEntity();
+    $question = $this->Questions->newEntity([]);
     $questids = array();    
     if(isset($clientUser->client['client_questions']) && !empty($clientUser->client['client_questions'])) {
         foreach($clientUser->client['client_questions'] as $cliservice) {           
