@@ -55,7 +55,7 @@ class AccountTypesController extends AppController
      */
     public function add()
     {
-        $accountType = $this->AccountTypes->newEntity();
+        $accountType = $this->AccountTypes->newEntity([]);
         if ($this->request->is('post')) {
             $accountType = $this->AccountTypes->patchEntity($accountType, $this->request->getData());
             $accountType->created_by = $this->getRequest()->getSession()->read('Auth.User.id');
