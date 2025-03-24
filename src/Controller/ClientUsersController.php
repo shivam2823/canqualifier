@@ -98,7 +98,7 @@ class ClientUsersController extends AppController
         
     }
     else { // New Client
-        $clientUser = $this->ClientUsers->newEntity();
+        $clientUser = $this->ClientUsers->newEntity([]);
         $client = $this->ClientUsers->Clients->newEntity();      
         if($step > 1) {
             $this->Flash->error(__('Please complete step 1'));
